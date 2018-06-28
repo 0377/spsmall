@@ -243,6 +243,97 @@ class Util_EweiShopV2Model
 		$data = json_decode($contents, true);
 		return $data;
 	}
+
+	//jacky add
+	public function get_bonus($orderid,$member){
+        $og_array = m('order')->checkOrderGoods($orderid);
+        $item = pdo_fetchall('select * from ' . tablename('ewei_shop_order_goods') . '  where  orderid=:orderid', array(':orderid' => $orderid));
+        foreach ($item as $it){
+            $goods = pdo_fetch('select * from ' . tablename('ewei_shop_goods') . '  where  id=:id limit 1', array(':id' => $it['goodsid']));
+            $healthy = pdo_fetch('select * from ' . tablename('ewei_shop_healthy') . '  where  user_id=:user_id limit 1', array(':user_id' => $og_array['user_id']));
+            $mc_member = pdo_fetch('select * from ' . tablename('mc_members') . '  where  uid=:uid limit 1', array(':uid' => $member['uid']));
+            if($mc_member){
+                $member['credit1'] = $mc_member['credit1'];
+            }
+            $goods_id = $it['goodsid'];
+            $user_id = $og_array['user_id'];
+            $money = $it['price'];
+            $ordersn = $og_array['ordersn'];
+            if($goods['special'] == 3){
+                if($healthy){
+                    $date_log = array(
+                        'user_id' => $og_array['user_id'],
+                        'add_integral'=> $it['price'],
+                        'integral' => $member['credit1']+$it['price'],
+                        'datetime' => date('Y-m-d H:i:s'),
+                        'type' => '4',
+                        'status' => '1'
+                    );
+                    pdo_insert('ewei_shop_healthy_log', $date_log);
+
+                }
+            }elseif($goods['special'] == 2 ){
+                if(!$healthy) {
+                    pdo_insert('ewei_shop_healthy',array('user_id'=>$member['id'],'datetime'=>date('Y-m-d H:i:s')));
+                }
+				$date = array(
+					'healthy_integral'=> $member['credit1']+$it['price'],
+					'datetime' => date('Y-m-d H:i:s')
+				);
+				pdo_update('ewei_shop_healthy',$date,array('user_id' => $og_array['user_id']));
+				pdo_update('ewei_shop_member',array('credit1'=>$date['healthy_integral']),array('id' => $og_array['user_id']));
+				if($mc_member) pdo_update('mc_members',array('credit1'=>$date['healthy_integral']),array('uid' => $member['uid']));
+				$date_log = array(
+					'user_id' => $og_array['user_id'],
+					'add_integral'=> $it['price'],
+					'integral' =>$member['credit1']+$it['price'],
+					'datetime' => date('Y-m-d H:i:s'),
+					'type' => '1',
+					'status' => '1'
+				);
+				pdo_insert('ewei_shop_healthy_log', $date_log);
+                $bv_list = pdo_fetchall("select * from ".tablename('ewei_shop_healthy_log')."where `user_id` = :user_id and `type` = '4'",array(':user_id' => $member['id']));
+                if(!$bv_list){
+                    $date_log = array(
+                        'user_id' => $og_array['user_id'],
+                        'add_integral'=> $it['price'],
+                        'integral' => $member['credit1']+$it['price'],
+                        'datetime' => date('Y-m-d H:i:s'),
+                        'type' => '4',
+                        'status' => '1'
+                    );
+                    pdo_insert('ewei_shop_healthy_log', $date_log);
+                }
+				$nb = m('bonus')->get_pay($user_id, $money, $ordersn, $goods_id);
+
+                pdo_update('ewei_shop_member',array('credit0'=>$member['credit0']+$it['price']),array('id' => $member['id']));
+            }else{
+                $nb =m('bonus')->get_pay_one($user_id, $money, $ordersn, $goods_id);
+            }
+
+            return $nb;
+        }
+	}
+
+    public function add_bonus($orderid,$member){
+        $og_array = m('order')->checkOrderGoods($orderid);
+        $item = pdo_fetchall('select * from ' . tablename('ewei_shop_order_goods') . '  where  orderid=:orderid', array(':orderid' => $orderid));
+        $bonus_me = pdo_fetch('select * from '.tablename('ewei_out_men').'where out_men = :out_men ',array(':out_men' => $member['id']));
+		if(!$bonus_me){
+            pdo_insert('ewei_out_men',array('out_men' => $member['id']));
+		}
+        foreach ($item as $it){
+            $goods = pdo_fetch('select * from ' . tablename('ewei_shop_goods') . '  where  id=:id limit 1', array(':id' => $it['goodsid']));
+            $healthy = pdo_fetch('select * from ' . tablename('ewei_shop_healthy') . '  where  user_id=:user_id limit 1', array(':user_id' => $og_array['user_id']));
+        	if($goods['special'] == 3){
+
+			}elseif($goods['special'] == 2 ){
+                if(!$healthy) {
+                    pdo_insert('ewei_shop_healthy',array('user_id'=>$member['id'],'datetime'=>date('Y-m-d H:i:s')));
+                }
+            }
+        }
+    }
 }
 
 if (!defined('IN_IA')) {
