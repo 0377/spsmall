@@ -328,6 +328,61 @@ class Index_EweiShopV2Page extends MobileLoginPage
 		unset($row);
 		show_json(1, array('list' => $list, 'pagesize' => $psize, 'total' => $total));
 	}
+    //jacky add
+	public function get_list_one(){
+        global $_W;
+        global $_GPC;
+        $member = m('member')->getMember($_W['openid'], true);
+        $pindex = max(1, intval($_GPC['page']));
+        $psize = 50;
+        $show_status = $_GPC['status'];
+
+        if ($show_status != '') {
+            $show_status = intval($show_status);
+            if($show_status > 12) $params = array(':in_men' => $member['id']); else $params = array(':user_id' => $member['id']);
+            switch ($show_status) {
+                case 11:
+                    $list = pdo_fetchall('select * from ' . tablename('ewei_shop_healthy_log') . ' where user_id=:user_id and type = 1 order by datetime desc limit '. (($pindex - 1) * $psize).',3', $params);
+                    $total = pdo_fetchcolumn('select * from ' . tablename('ewei_shop_healthy_log') . ' where user_id=:user_id ',$params);
+                    break;
+
+                case 12:
+                    $list = pdo_fetchall('select * from ' . tablename('ewei_shop_healthy_log') . ' where user_id=:user_id and type = 2 order by datetime desc limit '. (($pindex - 1) * $psize).',3', $params);
+                    $total = pdo_fetchcolumn('select * from ' . tablename('ewei_shop_healthy_log') . ' where user_id=:user_id ',$params);
+                    break;
+
+                case 13:
+                    $list = pdo_fetchall('select * from ' . tablename('ewei_shop_bonus_log') . ' where in_men=:in_men and type = 1 order by datetime desc limit '. (($pindex - 1) * $psize).',3', $params);
+                    $total = pdo_fetchcolumn('select datetime from ' . tablename('ewei_shop_bonus_log') . ' where in_men=:in_men and type = 1 ', $params);
+                    break;
+
+                case 14:
+                    $list = pdo_fetchall('select * from ' . tablename('ewei_shop_bonus_log') . ' where in_men=:in_men and type = 2 order by datetime desc limit '. (($pindex - 1) * $psize).',3', $params);
+                    $total = pdo_fetchcolumn('select datetime from ' . tablename('ewei_shop_bonus_log') . ' where in_men=:in_men and type = 2 ', $params);
+                    break;
+
+                case 15:
+                    $list = pdo_fetchall('select * from ' . tablename('ewei_shop_bonus_log') . ' where in_men=:in_men and type = 3 order by datetime desc limit '. (($pindex - 1) * $psize).',3', $params);
+                    $total = pdo_fetchcolumn('select datetime from ' . tablename('ewei_shop_bonus_log') . ' where in_men=:in_men and type = 3 ', $params);
+                    break;
+            }
+        }
+        if($show_status > 12){
+            foreach ($list as &$row ) {
+                $goods_list[0]['goods'] = '';
+                $row['goods'] = $goods_list;
+                $row['up'] = '2';
+            }
+        }else{
+            foreach ($list as &$row ) {
+                $goods_list[0]['goods'] = '';
+                $row['goods'] = $goods_list;
+                $row['up'] = '1';
+            }
+        }
+        unset($row);
+        show_json(1,array('list' => $list, 'pagesize' => $psize,'total' => $total));
+    }
 
 	public function alipay()
 	{

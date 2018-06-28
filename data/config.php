@@ -5,7 +5,7 @@ $config = array();
 
 $config['db']['master']['host'] = '127.0.0.1';
 $config['db']['master']['username'] = 'root';
-$config['db']['master']['password'] = 'q12345678.';
+$config['db']['master']['password'] = 'jdhr2015../';
 $config['db']['master']['port'] = '3306';
 $config['db']['master']['database'] = 'spsmall';
 $config['db']['master']['charset'] = 'utf8';
@@ -26,7 +26,7 @@ $config['db']['slave']['1']['weight'] = 0;
 $config['db']['common']['slave_except_table'] = array('core_sessions');
 
 // --------------------------  CONFIG COOKIE  --------------------------- //
-$config['cookie']['pre'] = '0bf4_';
+$config['cookie']['pre'] = 'ca23_';
 $config['cookie']['domain'] = '';
 $config['cookie']['path'] = '/';
 
@@ -36,7 +36,7 @@ $config['setting']['cache'] = 'mysql';
 $config['setting']['timezone'] = 'Asia/Shanghai';
 $config['setting']['memory_limit'] = '256M';
 $config['setting']['filemode'] = 0644;
-$config['setting']['authkey'] = 'ae98fae7';
+$config['setting']['authkey'] = '41fd7516';
 $config['setting']['founder'] = '1';
 $config['setting']['development'] = 0;
 $config['setting']['referrer'] = 0;

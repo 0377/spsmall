@@ -8,7 +8,7 @@ if (!defined('IN_IA')) {
 return array(
 	'version' => '1.0',
 	'id'      => 'sns',
-	'name'    => '人人社区',
+	'name'    => '微商宝社区',
 	'v3'      => true,
 	'menu'    => array(
 		'title'     => '页面',

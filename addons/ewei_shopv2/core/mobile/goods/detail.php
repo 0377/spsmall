@@ -680,7 +680,9 @@ class Detail_EweiShopV2Page extends MobilePage
 		$shop['url'] = mobileUrl('', NULL, true);
 		$mid = intval($_GPC['mid']);
 		$opencommission = false;
-
+        if(!empty($mid)){
+            pdo_update('ewei_shop_member',array('agentid'=>$mid),array('openid'=>$openid));
+        }
 		if (p('commission')) {
 			if (empty($member['agentblack'])) {
 				$cset = p('commission')->getSet();

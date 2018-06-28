@@ -201,7 +201,7 @@ class Index_EweiShopV2Page extends WebPage
 					show_json(1, array('status' => 0, 'messages' => '微信接口系统繁忙,请稍后再试!', 'tag' => $tag));
 				}
 				 else if (strstr($result['errmsg'], 'access_token is invalid or not latest hint')) {
-					show_json(1, array('status' => 0, 'messages' => '微信证书无效，请检查微擎access_token设置', 'tag' => $tag));
+					show_json(1, array('status' => 0, 'messages' => '微信证书无效，请检查微商宝access_token设置', 'tag' => $tag));
 				}
 				 else {
 					show_json(1, array('status' => 0, 'messages' => $result['errmsg'], 'tag' => $tag));

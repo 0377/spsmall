@@ -391,6 +391,8 @@ if ($_W['ispost']) {
 	$data['dispatchprice'] = trim($_GPC['dispatchprice']);
 	$data['dispatchid'] = intval($_GPC['dispatchid']);
 
+    $data['special'] = intval($_GPC['special']);
+
 	if ($data['total'] === -1) {
 		$data['total'] = 0;
 		$data['totalcnf'] = 2;

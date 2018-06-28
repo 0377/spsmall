@@ -830,7 +830,7 @@
 
 <div id='comments-container'></div>
 
-<!--店铺信息-->
+<!--店铺信息
 <div class="fui-cell-group fui-shop-group">
     <a class='fui-list' href="{$shopdetail['btnurl2']}">
         <div class='fui-list-media'>
@@ -844,7 +844,7 @@
                 <span class="btn btn-default-o external goshop">{if !empty($shopdetail['btntext2'])}{$shopdetail['btntext2']}{else}进店逛逛{/if}</span>
         </div>
     </a>
-</div>
+</div>-->
 <!--购买后显示-->
 {if $buyshow==1 && !empty($goods['buycontent'])}
 <div class="fui-cell-group">
@@ -991,10 +991,14 @@
             <span class="icon {if $isFavorite}icon-likefill{else}icon-like{/if}"></span>
             <span class="label" >关注</span>
         </a>
-        <a class="nav-item external" href="{php echo !empty($goods['merchid']) ? mobileUrl('merch',array('merchid'=>$goods['merchid'])) : mobileUrl('');}">
+        <!--<a class="nav-item external" href="{php echo !empty($goods['merchid']) ? mobileUrl('merch',array('merchid'=>$goods['merchid'])) : mobileUrl('');}">
             <span class="icon icon-shop"></span>
             <span class="label" >店铺</span>
-        </a>
+        </a>-->
+    <a class="nav-item external" href="https://static.meiqia.com/dist/standalone.html?_=t&eid=111336&agentid=434b84287a676e436e3b99d3f9a755ba">
+        <span class="icon icon-person2"></span>
+        <span class="label" >客服</span>
+    </a>
         <a class="nav-item cart-item" href="{php echo mobileUrl('member/cart')}" data-nocache="true" he="" id="menucart">
             <span class='badge {if $cartCount<=0}out{else}in{/if}'>{$cartCount}</span>
             <span class="icon icon-cart"></span>

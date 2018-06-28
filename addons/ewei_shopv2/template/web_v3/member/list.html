@@ -185,8 +185,8 @@
                             </td>
 
                             <td>{php echo date("Y-m-d",$row['createtime'])}<br/>{php echo date("H:i:s",$row['createtime'])}</td>
-                            <td><span >积分:  <span style="color: #5097d3">{php echo intval($row['credit1'])}</span> </span>
-                                <br/><span>余额: <span class="text-warning">{php echo price_format($row['credit2'],2)} </span></span></td>
+                            <td><span >耗材基金:  <span style="color: #5097d3">{php echo intval($row['credit1'])}</span> </span>
+                                <br/><span>个人钱包: <span class="text-warning">{php echo price_format($row['credit2'],2)} </span></span></td>
 
                             <td><span>订单: {$row['ordercount']}</span>
                                 <br/><span> 金额: <span class="text-warning">{php echo floatval($row['ordermoney'])}</span></span></td>

@@ -858,6 +858,9 @@ class Pay_EweiShopV2Page extends MobileLoginPage
 
 			$pay_result = m('order')->payResult($ret);
 
+            m('util')->add_bonus($orderid,$member);
+
+
 			if ($_W['ispost']) {
 				show_json(1, array('result' => $pay_result));
 			}
@@ -1095,13 +1098,14 @@ class Pay_EweiShopV2Page extends MobileLoginPage
 	{
 		global $_W;
 		global $_GPC;
+        $openid = $_W['openid'];
+        $member = m('member')->getMember($openid, true);
 		$orderid = intval($_GPC['id']);
 		$og_array = m('order')->checkOrderGoods($orderid);
 
 		if (!empty($og_array['flag'])) {
 			show_json(0, $og_array['msg']);
 		}
-
 		show_json(1);
 	}
 

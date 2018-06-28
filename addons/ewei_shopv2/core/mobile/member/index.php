@@ -12,7 +12,25 @@ class Index_EweiShopV2Page extends MobileLoginPage
 		$member = m('member')->getMember($_W['openid'], true);
 		$level = m('member')->getLevel($_W['openid']);
 
-		if (com('wxcard')) {
+		if(empty($member['uuid']) or $member['uuid']<'10001688'){
+            $one_mb = pdo_fetch('select * from '.tablename('ewei_number_id').' where id = :id limit 1',array(':id' => '1'));
+            $mbid = $one_mb['number']+1;
+            pdo_update('ewei_shop_member',array('uuid'=>$mbid),array('id'=>$member['id']));
+            pdo_update('ewei_number_id',array('number'=>$mbid),array('id'=>'1'));
+            $member = m('member')->getMember($_W['openid'], true);
+            /*$mbid = $member['id']-1;
+            for($i=$mbid;$i>=0;$i--){
+                $one_mb = pdo_fetch('select * from '.tablename('ewei_shop_member').' where id = :id limit 1',array(':id' => $i));
+                if($one_mb == true) break;
+            }
+
+            $uuid = $one_mb['uuid']+1;
+            pdo_update('ewei_shop_member',array('uuid'=>$uuid),array('id'=>$member['id']));
+            $member = m('member')->getMember($_W['openid'], true);*/
+        }
+
+
+        if (com('wxcard')) {
 			$wxcardupdatetime = intval($member['wxcardupdatetime']);
 
 			if (($wxcardupdatetime + 86400) < time()) {
@@ -206,9 +224,177 @@ class Index_EweiShopV2Page extends MobileLoginPage
 			$hasFullback = false;
 		}
 
+		//jacky add
+        $one_us = pdo_fetchall('select id from '.tablename('ewei_shop_member').'where agentid = :agentid ',array(':agentid' => $member['id']));
+        $one_sum = count($one_us);
+        if(!$one_sum) $one_sum = 0;
+        $k = 0;
+        foreach ($one_us as $us){
+            $two_sum = count(pdo_fetchall('select id from '.tablename('ewei_shop_member').'where agentid = :agentid ',array(':agentid' => $us['id'])));
+            if(!$two_sum) $one_sum = 0;
+            $k = $k+$two_sum;
+        }
 
-		include $this->template();
+        $healthy = pdo_fetch('select * from '.tablename('ewei_shop_healthy').'where user_id = :user_id limit 1',array(':user_id' => $member['id']));
+        $hy = pdo_fetch("select * from ".tablename('ewei_shop_healthy_log')."where `user_id` = :user_id and `type` = :tp and `datetime` like '".date('Y-m-d')."%' and status = :status limit 1",array(':user_id' => $member['id'],':tp'=>'2',':status'=>'1'));
+        if(!$hy){
+            $l_a = date('Y-m');
+            $l_m = date('Y-m',strtotime('-1 month'));
+            $l_r = date('Y-m',strtotime('-2 month'));
+            $l_e = date('Y-m',strtotime('-3 month'));
+            $bv_list = pdo_fetchall("select * from ".tablename('ewei_shop_healthy_log')."where `user_id` = :user_id and (`datetime` like '".$l_m."%' or `datetime` like '".$l_r."%' or`datetime` like '".$l_e."%' or`datetime` like '".$l_a."%') and `type` = '4'",array(':user_id' => $member['id']));
+            if($bv_list){
+                if($healthy['healthy_integral'] >= 1.5  ){
+                    $h_y['healthy_integral'] = $member['credit1']-1.5;
+                    $h_y['healthy_money'] = $healthy['healthy_money']+1.5;
+                    pdo_update('ewei_shop_healthy',$h_y,array('user_id' => $member['id']));
+                    pdo_update('ewei_shop_member',array('credit1'=>$h_y['healthy_integral']),array('id' => $member['id']));
+                    pdo_update('mc_members',array('credit1'=>$h_y['healthy_integral']),array('uid' => $member['uid']));
+                    $datetime = date('Y-m-d H:i:s',time());
+                    pdo_insert('ewei_shop_healthy_log',array('user_id'=>$member['id'],'add_integral'=>'1.5','integral'=>$h_y['healthy_money'],'datetime'=>$datetime,'type'=>'2','status'=>1));
+                    pdo_insert('ewei_shop_healthy_log',array('user_id'=>$member['id'],'add_integral'=>'1.5','integral'=>$h_y['healthy_integral'],'datetime'=>$datetime,'type'=>'1','status'=>0));
+                }
+            }
+        }
+        if($healthy['healthy_money'] >=100){
+            $h_y_t['healthy_money'] = $healthy['healthy_money']-100;
+            $h_y_mb = $member['credit2']+100;
+            pdo_update('ewei_shop_healthy',$h_y_t,array('user_id' => $member['id'],'status'=>'1'));
+            pdo_update('ewei_shop_member',array('credit2'=>$h_y_mb),array('id' => $member['id']));
+            pdo_update('mc_members',array('credit2'=>$h_y_mb),array('uid' => $member['uid']));
+            $datetime = date('Y-m-d H:i:s',time());
+            pdo_insert('ewei_shop_healthy_log',array('user_id'=>$member['id'],'add_integral'=>'100','integral'=>$h_y_t['healthy_money'],'datetime'=>$datetime,'type'=>'2','status'=>0));
+        }
+        if(date('d') == '09'){
+            $l_a = date('Y-m');
+            $l_m = date('Y-m',strtotime('-1 month'));
+            $l_r = date('Y-m',strtotime('-2 month'));
+            $l_e = date('Y-m',strtotime('-3 month'));
+            $s_date = strtotime(date('Y-m-01 00:00:00',strtotime('-1 month')));
+            $goods_list = pdo_fetchall("select * from ".tablename('ewei_shop_order_goods')."where `openid` = :openid and `createtime` > :createtime ",array(':openid' => $_W['openid'],':createtime' =>$s_date));
+            $gds_mmy = 0;
+            foreach ($goods_list as $g_l){
+                $gds_mmy = $gds_mmy+$g_l['price'];
+            }
+            $bos_list = pdo_fetchall("select * from ".tablename('ewei_shop_bonus_log')."where `in_men` = :in_men and `datetime` like '".$l_m."%' and `type` = '1'",array(':in_men' => $member['id']));
+            $bos_mmy = 0;
+            foreach ($bos_list as $g_l){
+                $bos_mmy = $bos_mmy+$g_l['out_men'];
+            }
+            $al_mmy = $gds_mmy+$bos_mmy;
+            if($al_mmy<2999){
+                pdo_update('ewei_shop_healthy',array('status'=>'0'),array('user_id'=>$member['id']));
+            }else{
+                $l_m = date('Y-m',strtotime('-1 month'));
+                $bo_list = pdo_fetchall("select * from ".tablename('ewei_shop_bonus_log')."where `in_men` = :in_men and `datetime` like '".$l_m."%' and `type` = '3'",array(':in_men' => $member['id']));
+                foreach ($bo_list as $blt){
+                    $in_men_money = $member['credit2'] + $blt['in_men_money'];
+                    $mr = pdo_fetch('select * from ' . tablename('ewei_shop_member') . '  where  id=:id limit 1', array(':id' => $blt['in_men']));
+                    $mc = pdo_fetch('select * from ' . tablename('mc_members') . '  where  uid=:uid limit 1', array(':uid' => $member['uid']));
+                    if($mc) {
+                            pdo_update('mc_members', array('credit2' => $in_men_money), array('id' => $mr['uid']));
+                    }else {
+                            pdo_update('ewei_shop_member', array('credit2' => $in_men_money), array('id' => $member['id']));
+                    }
+                }
+            }
+        }
+        $hcjj=m('member')->getCredit($_W['openid']);
+        $healthy = pdo_fetch('select * from '.tablename('ewei_shop_healthy').'where user_id = :user_id limit 1',array(':user_id' => $member['id']));
+        $bonus_me = pdo_fetch('select sum(id) as sum_id from '.tablename('ewei_out_men').'where out_men = :out_men ',array(':out_men' => $member['id']));
+        $bonus_one = pdo_fetch('select sum(money) as sum_money from '.tablename('ewei_shop_bonus_log').'where in_men = :in_men and type = 1',array(':in_men' => $member['id']));
+        $bonus_two = pdo_fetch('select sum(money) as sum_money from '.tablename('ewei_shop_bonus_log').'where in_men = :in_men and type = 2',array(':in_men' => $member['id']));
+        $bonus_thr = pdo_fetch('select sum(money) as sum_money from '.tablename('ewei_shop_bonus_log').'where in_men = :in_men and type = 3',array(':in_men' => $member['id']));
+        //var_dump($uuid);
+        include $this->template();
 	}
+
+	public function wallet(){
+        global $_W;
+        global $_GPC;
+        $member = m('member')->getMember($_W['openid'], true);
+        $bonus_one = pdo_fetch('select sum(money) as sum_money from '.tablename('ewei_shop_bonus_log').'where in_men = :in_men and type = 1',array(':in_men' => $member['id']));
+        $bonus_two = pdo_fetch('select sum(money) as sum_money from '.tablename('ewei_shop_bonus_log').'where in_men = :in_men and type = 2',array(':in_men' => $member['id']));
+        $bonus_thr = pdo_fetch('select sum(money) as sum_money from '.tablename('ewei_shop_bonus_log').'where in_men = :in_men and type = 3',array(':in_men' => $member['id']));
+        include $this->template('member/wallet');
+    }
+
+    public function contract(){
+        global $_W;
+        global $_GPC;
+        if ($_W['ispost']) {
+            /*$hh = pdo_fetch('select * from '.tablename('ewei_shop_goods').'where special = 2 limit 1');
+            if($hh) {
+                show_json(1,$hh['id']);
+            }else {
+                show_json(0,'签署失败，请检查网络');
+            }*/
+            $member = m('member')->getMember($_W['openid'], true);
+
+            $hl = pdo_update('ewei_shop_healthy',array('status'=>'1'),array('user_id'=>$member['id']));
+            if(!$hl){
+                $hr = pdo_insert('ewei_shop_healthy',array('user_id'=>$member['id'],'datetime'=>date('Y-m-d H:i:s'),'status'=>'1'));
+                if($hr) {
+                    $hh = pdo_fetch('select * from '.tablename('ewei_shop_goods').'where special = 3 limit 1');
+                    show_json(1,$hh['id']);
+                }else {
+                    show_json(0,'签署失败，请检查网络');
+                }
+
+            }else show_json(1,'签署成功');
+            //show_json(0,$member['id']);
+        }
+        include $this->template('member/contract');
+    }
+
+    public function lineup(){
+        global $_W;
+        $member = m('member')->getMember($_W['openid'], true);
+        $content_url = mobileUrl('commission/myshop', array('mid' => $member['id']), 1);
+        $dirname = '../addons/ewei_shopv2/data/qrcode/user/';
+        load()->func('file');
+        mkdirs($dirname);
+        require IA_ROOT . '/framework/library/qrcode/phpqrcode.php';
+        QRcode::png($content_url, $dirname . '/' . $member['id'] . '.png', QR_ECLEVEL_L, 10, 3);
+        $img = $_W['siteroot'] . 'addons/ewei_shopv2/data/qrcode/user/'. $member['id'] . '.png';
+        include $this->template('member/lineup');
+    }
+
+    public function mymarket(){
+        global $_W;
+        $member = m('member')->getMember($_W['openid'], true);
+        $one_us = pdo_fetchall('select * from '.tablename('ewei_shop_member').'where agentid = :agentid ',array(':agentid' => $member['id']));
+        $one_sum = count($one_us);
+        if(!$one_us) $one_sum = 0;
+        $k = 0;
+        $j = 0;
+        foreach ($one_us as $us){
+            $two_us = pdo_fetchall('select id from '.tablename('ewei_shop_member').'where agentid = :agentid ',array(':agentid' => $us['id']));
+            $two_sum = count($two_us);
+            if(!$two_sum) $two_sum = 0;
+            $k = $k+$two_sum;
+            foreach ($two_us as $two){
+                $thr_us = pdo_fetchall('select id from '.tablename('ewei_shop_member').'where agentid = :agentid ',array(':agentid' => $two['id']));
+                $thr_sum = count($thr_us);
+                if(!$thr_sum) $thr_sum = 0;
+                $j = $j+$thr_sum;
+                foreach ($thr_us as $thr){
+                    $for_us = pdo_fetchall('select id from '.tablename('ewei_shop_member').'where agentid = :agentid ',array(':agentid' => $thr['id']));
+                    $for_sum = count($for_us);
+                    if(!$for_sum) $for_sum = 0;
+                    $j = $j+$for_sum;
+                    foreach ($for_us as $fir){
+                        $six_us = pdo_fetchall('select id from '.tablename('ewei_shop_member').'where agentid = :agentid ',array(':agentid' => $fir['id']));
+                        $six_sum = count($six_us);
+                        if(!$six_sum) $six_sum = 0;
+                        $j = $j+$six_sum;
+                    }
+                }
+            }
+        }
+        //var_dump($k);
+        include $this->template('member/mymarket');
+    }
 }
 
 

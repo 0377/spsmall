@@ -1,0 +1,44 @@
+<style type='text/css'>
+	body { width:100%;}
+
+	.img-thumbnail { width:100px; height:100px;}
+	.img-nickname { height:25px;line-height:25px;width:90px;margin-left:5px;margin-right:5px;position: absolute;bottom:55px;color:#fff;text-align: center;background:rgba(0,0,0,0.7)}
+</style>
+<div class="region-goods-details row">
+	<div class="region-goods-left col-sm-2">特殊产品</div>
+	<div class="region-goods-right col-sm-10">
+		<div class="form-group">
+			<label class="col-xs-12 col-sm-3 col-md-2 control-label">设置为特殊商品</label>
+			<div class="col-sm-6 col-xs-6">
+
+				<label class="radio-inline"><input type="radio" name="special" value="2" {if $item['special'] == 2}checked="true"{/if}   /> 是：享受耗材基金与红利</label>
+				<label class="radio-inline"><input type="radio" name="special" value="1" {if empty($item['special']) || $item['special'] == 1}checked="true"{/if}  /> 否：只享受红利。</label>
+
+				<span class='help-block'></span>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-xs-12 col-sm-3 col-md-2 control-label">设置为净水器产品</label>
+			<div class="col-sm-6 col-xs-6">
+				<label class="radio-inline"><input type="radio" name="special" value="3" {if $item['special'] == 3}checked="true"{/if}   /> 是</label>
+				<span class='help-block'>不再享受将所有基金与红利。</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        $("input[name='isendtime']").off("click").on("click",function(){
+            if($(this).val()==0){
+                $("#usetime").show();
+                $("#endtime").hide();
+            }else{
+                $("#endtime").show();
+                $("#usetime").hide();
+            }
+        })
+    })
+</script>
+<!--NDAwMDA5NzgyNw==-->

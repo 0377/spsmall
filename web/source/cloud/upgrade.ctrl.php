@@ -97,4 +97,4 @@ if ($do == 'upgrade') {
         }
     }
 }
-template('cloud/upgrade');
+//template('cloud/upgrade');

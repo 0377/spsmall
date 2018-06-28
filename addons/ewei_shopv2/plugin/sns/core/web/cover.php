@@ -9,7 +9,7 @@ class Cover_EweiShopV2Page extends PluginWebPage
 	{
 		global $_W;
 		global $_GPC;
-		$rule = pdo_fetch('select * from ' . tablename('rule') . ' where uniacid=:uniacid and module=:module and name=:name limit 1', array(':uniacid' => $_W['uniacid'], ':module' => 'cover', ':name' => 'ewei_shopv2人人社区入口设置'));
+		$rule = pdo_fetch('select * from ' . tablename('rule') . ' where uniacid=:uniacid and module=:module and name=:name limit 1', array(':uniacid' => $_W['uniacid'], ':module' => 'cover', ':name' => 'ewei_shopv2微商宝社区入口设置'));
 
 		if (!empty($rule)) {
 			$keyword = pdo_fetch('select * from ' . tablename('rule_keyword') . ' where uniacid=:uniacid and rid=:rid limit 1', array(':uniacid' => $_W['uniacid'], ':rid' => $rule['id']));
@@ -30,7 +30,7 @@ class Cover_EweiShopV2Page extends PluginWebPage
 			$keyword = m('common')->keyExist($data['keyword']);
 
 			if (!empty($keyword)) {
-				if ($keyword['name'] != 'ewei_shopv2人人社区入口设置') {
+				if ($keyword['name'] != 'ewei_shopv2微商宝社区入口设置') {
 					show_json(0, '关键字已存在!');
 				}
 			}
@@ -41,14 +41,14 @@ class Cover_EweiShopV2Page extends PluginWebPage
 				pdo_delete('cover_reply', array('rid' => $rule['id'], 'uniacid' => $_W['uniacid']));
 			}
 
-			$rule_data = array('uniacid' => $_W['uniacid'], 'name' => 'ewei_shopv2人人社区入口设置', 'module' => 'cover', 'displayorder' => 0, 'status' => intval($data['status']));
+			$rule_data = array('uniacid' => $_W['uniacid'], 'name' => 'ewei_shopv2微商宝社区入口设置', 'module' => 'cover', 'displayorder' => 0, 'status' => intval($data['status']));
 			pdo_insert('rule', $rule_data);
 			$rid = pdo_insertid();
 			$keyword_data = array('uniacid' => $_W['uniacid'], 'rid' => $rid, 'module' => 'cover', 'content' => trim($data['keyword']), 'type' => 1, 'displayorder' => 0, 'status' => intval($data['status']));
 			pdo_insert('rule_keyword', $keyword_data);
 			$cover_data = array('uniacid' => $_W['uniacid'], 'rid' => $rid, 'module' => $this->modulename, 'title' => trim($data['title']), 'description' => trim($data['desc']), 'thumb' => save_media($data['thumb']), 'url' => mobileUrl('sns'));
 			pdo_insert('cover_reply', $cover_data);
-			plog('creditshop.cover.edit', '修改人人社区入口设置');
+			plog('creditshop.cover.edit', '修改微商宝社区入口设置');
 			show_json(1);
 		}
 

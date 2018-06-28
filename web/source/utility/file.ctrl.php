@@ -548,7 +548,7 @@ if ($do == 'module') {
 			unset($installedmodulelist[$k]);
 			continue;
 		}
-		$installedmodulelist[$k]['official'] = empty($value['issystem']) && (strexists($value['author'], 'WeEngine Team') || strexists($value['author'], '微擎团队'));
+		$installedmodulelist[$k]['official'] = empty($value['issystem']) && (strexists($value['author'], 'WeEngine Team') || strexists($value['author'], '微商宝团队'));
 	}
 	foreach ($installedmodulelist as $name => $module) {
 		if ($module['issystem']) {

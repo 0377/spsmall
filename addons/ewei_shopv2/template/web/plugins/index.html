@@ -7,7 +7,7 @@
 		padding-bottom: 10px;
 		border-bottom: 1px solid #f2f2f2
 	}
-	
+
 	.feed-element {
 		float: left;
 		cursor: pointer;
@@ -18,30 +18,30 @@
 		margin-left: 10px;
 		border: none;
 	}
-	
+
 	.feed-element::after {
 		display: none
 	}
-	
+
 	.feed-element .title {
 		font-size: 14px;
 		font-weight: bold;
 		height: 32px;
 		margin-top: 10px;
 	}
-	
+
 	.feed-activity-list .feed-element {
 		border: none;
 		border-right: 1px solid #f2f2f2;
 	}
-	
+
 	.feed-element img.img-circle,
 	.dropdown-messages-box img.img-circle {
 		width: 60px;
 		height: 60px;
 		border-radius: 10px;
 	}
-	
+
 	.media-body {
 		margin-top: 3px;
 	}
@@ -52,7 +52,7 @@
         <a class='btn btn-default btn-sm' href="{php echo webUrl('grant')}">授权应用中心</a>
     </span>
 	{/if}
-	<h2>我的应用</h2> 
+	<h2>我的应用</h2>
 </div>
 
 <div class='panel panel-default' style='border:none;'>
@@ -69,7 +69,7 @@
 	</a>
 	{/if}
 	{loop $category $ck $cv}
-		{if count($cv['plugins'])<=0}{php continue;}{/if} 
+		{if count($cv['plugins'])<=0}{php continue;}{/if}
 		<div class="panel-heading" style='background:none;border:none;'>
 			{$cv['name']}
 		</div>

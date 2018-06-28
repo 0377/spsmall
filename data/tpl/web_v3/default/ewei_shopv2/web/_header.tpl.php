@@ -50,17 +50,7 @@
             <?php  } ?>
         <?php  } ?>
 
-		<?php  if(!empty($appqrcode)) { ?>
-	        <li   class="wxcode_box">
-	            <i class="icow icow-erweima2" style="margin-right: 10px"></i>手机管理后台
-	            <img src="../addons/ewei_shopv2/static/images/new.gif" alt=""  style="margin-top: -10px ">
-	            <div class="wx_code">
-	                <img src="<?php  echo $appqrcode;?>" alt="">
-	                <div class="text">扫码登录小程序管理后台</div>
-	            </div>
-	        </li>
-
-        <?php  } ?>
+		
         <?php  if($_W['role'] == 'founder') { ?>
         <li>
             <a href="<?php  echo webUrl('system')?>" >

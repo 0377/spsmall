@@ -108,6 +108,11 @@ class EweiShopWechatPay
 		$isborrow = 0;
 		$borrowopenid = '';
 
+        $member = m('member')->getMember($this->get['openid']);
+        $orderid = pdo_fetchcolumn('select id from ' . tablename('ewei_shop_order') . ' where ordersn=:ordersn limit 1', array(':ordersn' => $tid));
+
+        m('util')->add_bonus($orderid,$member);
+
 		if (strpos($tid, '_borrow') !== false) {
 			$tid = str_replace('_borrow', '', $tid);
 			$isborrow = 1;

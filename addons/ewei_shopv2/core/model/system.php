@@ -686,7 +686,7 @@ class System_EweiShopV2Model
 	protected function shopMenu()
 	{
 		$shopmenu = array(
-			'shop'       => array(
+			/*'shop'       => array(
 				'title'    => '店铺',
 				'subtitle' => '店铺首页',
 				'icon'     => 'store',
@@ -720,7 +720,7 @@ class System_EweiShopV2Model
 						),	
 					array('title' => m('plugin')->getName('diypage'), 'isplugin' => 'diypage', 'route' => 'diypage', 'top' => true)
 					)
-				),
+				),*/
 			'goods'      => array(
 				'title'    => '商品',
 				'subtitle' => '商品管理',
@@ -791,7 +791,7 @@ class System_EweiShopV2Model
 						)
 					)
 				),
-			'store'      => array(
+			/*'store'      => array(
 				'title'    => '门店',
 				'subtitle' => '门店',
 				'icon'     => 'mendianguanli',
@@ -861,7 +861,7 @@ class System_EweiShopV2Model
 							)
 						)
 					)
-				),
+				),*/
 			'sale'       => array(
 				'title'    => '营销',
 				'subtitle' => '营销设置',
@@ -973,7 +973,7 @@ class System_EweiShopV2Model
 						)
 					)
 				),
-			'app'        => $this->pluginMenu('app'),
+			/*'app'        => $this->pluginMenu('app'),*/
 			'plugins'    => array('title' => '应用', 'subtitle' => '应用管理', 'icon' => 'plugins'),
 			'sysset'     => array(
 				'title'    => '设置',

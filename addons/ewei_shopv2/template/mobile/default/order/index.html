@@ -22,7 +22,7 @@
         <div class="fui-header-left">
             <a class="back"></a>
         </div>
-        <div class="title">我的订单</div>
+        <div class="title">{if $_GPC['status'] > 10 and $_GPC['status'] <= 12}耗材基金/钱包{elseif $_GPC['status'] >12 and $_GPC['status'] <= 15}营销分红{else}我的订单{/if}</div>
         <div class="fui-header-right">
             <a class="icon icon-delete external">回收站</a>
         </div>
@@ -32,7 +32,17 @@
         <a href="{php echo mobileUrl('order')}" class="external">其他订单</a>
         <a class='external active'  data-status=''>退/换货</a>
     </div>
-
+    {elseif $_GPC['status'] >10 and $_GPC['status'] <= 12}
+    <div id="tab" class="fui-tab fui-tab-danger">
+        <a data-tab="tab11"  class="external {if $_GPC['status']=='11'}active{/if}" data-status='11'>耗材基金</a>
+        <a data-tab="tab12"  class="external {if $_GPC['status']=='12'}active{/if}" data-status='12'>耗材钱包</a>
+    </div>
+    {elseif $_GPC['status'] >12 and $_GPC['status'] <= 15}
+    <div id="tab" class="fui-tab fui-tab-danger">
+        <a data-tab="tab13"  class="external {if $_GPC['status']=='13'}active{/if}" data-status='13'>直接营销利益</a>
+        <a data-tab="tab14"  class="external {if $_GPC['status']=='14'}active{/if}" data-status='14'>间接营利利益</a>
+        <a data-tab="tab15"  class="external {if $_GPC['status']=='15'}active{/if}" data-status='15'>新增市场营销红利</a>
+    </div>
     {else}
     <div id="tab" class="fui-tab fui-tab-danger">
         <a data-tab="tab"  class="external {if $_GPC['status']==''}active{/if}" data-status=''>全部</a>
@@ -61,10 +71,33 @@
 
         <%each list as order%>
         <div class='fui-list-group order-item' data-orderid="<%order.id%>" data-verifycode="<%order.verifycode%>">
-            <a href="{php echo mobileUrl('order/detail')}&id=<%order.id%>" data-nocache='true'>
+            <%if order.up != 1 && order.up != 2%><a href="{php echo mobileUrl('order/detail')}&id=<%order.id%>"<%else%> <a <%/if%> data-nocache='true'>
                 <div class='fui-list-group-title lineblock2 '>
-                    订单号: <%order.ordersn%>
-                    <span class='status <%order.statuscss%>'><%order.statusstr%></span>
+                    <%if order.up == 1%>
+                        时间: <%order.datetime%>
+                        <span class=' <%order.statuscss%>' style="float: right">
+                            <%if order.type == 1%>
+                                <%if order.status == 1%>
+                                    购买积分所得
+                                <%else if order.status == 0%>
+                                    每日释放转耗材钱包
+                                <%/if%>
+                            <%else if order.type == 2%>
+                                <%if order.status == 1%>
+                                    每日释放积分
+                                <%else if order.status == 0%>
+                                    满100转入钱包总额
+                                <%/if%>
+                            <%/if%>
+                        </span>
+                    <%else if order.up == 2%>
+                        时间: <%order.datetime%>
+                        <span class=' <%order.statuscss%>'><%order.statusstr%></span>
+                    <%else%>
+                        订单号: <%order.ordersn%>
+                        <span class='status <%order.statuscss%>'><%order.statusstr%></span>
+                    <%/if%>
+
                 </div>
                 <%each order.goods[0].goods as g%>
                 <div class="fui-list goods-list">
@@ -86,7 +119,15 @@
                 <%/each%>
 
                 <div class='fui-list-group-title lineblock'>
-                    <span class='status noremark'>共 <span><%order.goods.length%></span> 个商品 实付: <span class='text-danger'>&yen; <span class="bigprice"><%order.price%></span></span></span>
+                    <%if order.up == 1%>
+                        <span class='status noremark'style="float: left">所得 : <%if order.status == 1%>+<%else if order.status == 0%>-<%/if%><%order.add_integral%></span>
+                        <span class='status noremark'>剩余 : <%order.integral%></span>
+                    <%else if order.up == 2%>
+                        <span class='status noremark'style="float: left">所得 : +<%order.money%></span>
+                        <span class='status noremark'>剩余 : <%order.in_men_money%></span>
+                    <%else%>
+                        <span class='status noremark'>共 <span><%order.goods.length%></span> 个商品 实付: <span class='text-danger'>&yen; <span class="bigprice"><%order.price%></span></span></span>
+                    <%/if%>
                 </div>
             </a>
             <div class='fui-list-group-title lineblock   opblock' >
@@ -162,8 +203,8 @@
     {template 'order/verify'}
     {/if}
     <script language='javascript'>require(['biz/order/list'], function (modal) {
-        modal.init({fromDetail:false,status:"{$_GPC['status']}",merchid:{php echo intval($_GPC['merchid'])}});
-    });</script>
+    modal.init({fromDetail:false,status:"{$_GPC['status']}",merchid:{php echo intval($_GPC['merchid'])}});
+});</script>
 
     {php $this->footerMenus()}
 </div>

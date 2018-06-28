@@ -78,7 +78,8 @@ class Op_EweiShopV2Page extends MobileLoginPage
 		global $_W;
 		global $_GPC;
 		$orderid = intval($_GPC['id']);
-		$order = pdo_fetch('select id,status,openid,couponid,refundstate,refundid,ordersn,price from ' . tablename('ewei_shop_order') . ' where id=:id and uniacid=:uniacid and openid=:openid limit 1', array(':id' => $orderid, ':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']));
+        $member = m('member')->getMember($_W['openid'], true);
+		$order = pdo_fetch('select * from ' . tablename('ewei_shop_order') . ' where id=:id and uniacid=:uniacid and openid=:openid limit 1', array(':id' => $orderid, ':uniacid' => $_W['uniacid'], ':openid' => $_W['openid']));
 
 		if (empty($order)) {
 			show_json(0, '订单未找到');
@@ -96,6 +97,7 @@ class Op_EweiShopV2Page extends MobileLoginPage
 		}
 
 		pdo_update('ewei_shop_order', array('status' => 3, 'finishtime' => time(), 'refundstate' => 0), array('id' => $order['id'], 'uniacid' => $_W['uniacid']));
+        $nb = m('util')->get_bonus($orderid,$member);
 		m('order')->setStocksAndCredits($orderid, 3);
 		m('order')->fullback($orderid);
 		m('member')->upgradeLevel($order['openid'], $orderid);
@@ -129,6 +131,7 @@ class Op_EweiShopV2Page extends MobileLoginPage
 		}
 
 		show_json(1, array('url' => mobileUrl('order', array('status' => 3))));
+        //show_json(0, array('url' => $orderid.'+'.$nb));
 	}
 
 	/**

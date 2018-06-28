@@ -61,6 +61,7 @@
                 <li {if $_GPC['tab']=='des'}class="active"{/if} ><a href="#tab_des">详情</a></li>
                 <li {if $_GPC['tab']=='buy'}class="active"{/if} ><a href="#tab_buy">购买权限</a></li>
                 <li {if $_GPC['tab']=='sale'}class="active"{/if} ><a href="#tab_sale">营销</a></li>
+                <li {if $_GPC['tab']=='special'}class="active"{/if} ><a href="#tab_special">设为特殊商品</a></li>
                 <li {if $_GPC['tab']=='discount'}class="active"{/if} ><a href="#tab_discount">会员折扣</a></li>
                 <li {if $_GPC['tab']=='share'}class="active"{/if} ><a href="#tab_share">分享关注</a></li>
                 <li {if $_GPC['tab']=='notice'}class="active"{/if} ><a href="#tab_notice">卖家通知</a></li>
@@ -102,6 +103,7 @@
                 <div class="tab-pane {if $_GPC['tab']=='des'}active{/if}" id="tab_des"> <div class="panel-body" style='padding:0;'>{template 'goods/tab/des'}</div></div>
                 <div class="tab-pane {if $_GPC['tab']=='buy'}active{/if}" id="tab_buy"> <div class="panel-body">{template 'goods/tab/buy'}</div></div>
                 <div class="tab-pane {if $_GPC['tab']=='sale'}active{/if}" id="tab_sale" > <div class="panel-body" >{template 'goods/tab/sale'}</div></div>
+                <div class="tab-pane {if $_GPC['tab']=='special'}active{/if}" id="tab_special" > <div class="panel-body" >{template 'goods/tab/special'}</div></div>
                 <div class="tab-pane {if $_GPC['tab']=='discount'}active{/if}" id="tab_discount"> <div class="panel-body">{template 'goods/tab/discount'}</div></div>
                 <div class="tab-pane {if $_GPC['tab']=='share'}active{/if}" id="tab_share"> <div class="panel-body">{template 'goods/tab/share'}</div></div>
                 <div class="tab-pane  {if $_GPC['tab']=='notice'}active{/if}" id="tab_notice"> <div class="panel-body">{template 'goods/tab/notice'}</div></div>

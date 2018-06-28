@@ -735,9 +735,9 @@
 					<div class="btn btn-sm btn-default-o order-finish" data-orderid="{$order['id']}">确认收货</div>
 				{/if}
 
-				{if $order['canrefund']}
+				{if $order['canrefund'] == 100 }
 
-					<a data-nocache="true" class="btn btn-sm btn-default-o" href="{php echo mobileUrl('order/refund',array('id'=>$order['id']))}">{if !empty($order['refundstate'])}查看{/if}{if $order['status'] ==1}申请退款{else}申请售后{/if}{if !empty($order['refundstate'])}进度{/if}</a>
+					<!--<a data-nocache="true" class="btn btn-sm btn-default-o" href="{php echo mobileUrl('order/refund',array('id'=>$order['id']))}">{if !empty($order['refundstate'])}查看{/if}{if $order['status'] ==1}申请退款{else}申请售后{/if}{if !empty($order['refundstate'])}进度{/if}</a>-->
 				{/if}
 
 				{if $order['refundstate'] > 0 && $refund['status']!=5}

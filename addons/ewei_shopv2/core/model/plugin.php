@@ -43,7 +43,7 @@ class Plugin_EweiShopV2Model
 
 		}
 		 else {
-			$plugins = m('cache')->getArray('plugins2', 'global');
+			//$plugins = m('cache')->getArray('plugins2', 'global');
 
 			if (empty($plugins)) {
 				$plugins = pdo_fetchall('select * from ' . tablename('ewei_shop_plugin') . ' where iscom=0 and deprecated=0 ' . $status . ' order by displayorder asc');

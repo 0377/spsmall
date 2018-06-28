@@ -30,7 +30,7 @@ class Excel_EweiShopV2Model
 
 		require_once IA_ROOT . '/framework/library/phpexcel/PHPExcel.php';
 		$excel = new PHPExcel();
-		$excel->getProperties()->setCreator('人人商城')->setLastModifiedBy('人人商城')->setTitle('Office 2007 XLSX Test Document')->setSubject('Office 2007 XLSX Test Document')->setDescription('Test document for Office 2007 XLSX, generated using PHP classes.')->setKeywords('office 2007 openxml php')->setCategory('report file');
+		$excel->getProperties()->setCreator('尚品商城')->setLastModifiedBy('尚品商城')->setTitle('Office 2007 XLSX Test Document')->setSubject('Office 2007 XLSX Test Document')->setDescription('Test document for Office 2007 XLSX, generated using PHP classes.')->setKeywords('office 2007 openxml php')->setCategory('report file');
 		$sheet = $excel->setActiveSheetIndex(0);
 		$rownum = 1;
 
@@ -94,7 +94,7 @@ class Excel_EweiShopV2Model
 
 		require_once IA_ROOT . '/framework/library/phpexcel/PHPExcel.php';
 		$excel = new PHPExcel();
-		$excel->getProperties()->setCreator('人人商城')->setLastModifiedBy('人人商城')->setTitle('Office 2007 XLSX Test Document')->setSubject('Office 2007 XLSX Test Document')->setDescription('Test document for Office 2007 XLSX, generated using PHP classes.')->setKeywords('office 2007 openxml php')->setCategory('report file');
+		$excel->getProperties()->setCreator('尚品商城')->setLastModifiedBy('尚品商城')->setTitle('Office 2007 XLSX Test Document')->setSubject('Office 2007 XLSX Test Document')->setDescription('Test document for Office 2007 XLSX, generated using PHP classes.')->setKeywords('office 2007 openxml php')->setCategory('report file');
 		$sheet = $excel->setActiveSheetIndex(0);
 		$rownum = 1;
 

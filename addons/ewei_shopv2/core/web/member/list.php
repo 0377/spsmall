@@ -134,8 +134,8 @@ class List_EweiShopV2Page extends WebPage
 			$row['unfollowtime'] = ((isset($res_fans[$row['openid']]) ? $res_fans[$row['openid']]['unfollowtime'] : ''));
 			$row['fanid'] = ((isset($res_fans[$row['openid']]) ? $res_fans[$row['openid']]['fanid'] : ''));
 			$row['levelname'] = ((empty($row['levelname']) ? ((empty($shop['levelname']) ? '普通会员' : $shop['levelname'])) : $row['levelname']));
-			$row['ordercount'] = pdo_fetchcolumn('select count(*) from ' . tablename('ewei_shop_order') . ' where uniacid=:uniacid and openid=:openid and status=3', array(':uniacid' => $_W['uniacid'], ':openid' => $row['openid']));
-			$row['ordermoney'] = pdo_fetchcolumn('select sum(price) from ' . tablename('ewei_shop_order') . ' where uniacid=:uniacid and openid=:openid and status=3', array(':uniacid' => $_W['uniacid'], ':openid' => $row['openid']));
+			$row['ordercount'] = pdo_fetchcolumn('select count(*) from ' . tablename('ewei_shop_order') . ' where uniacid=:uniacid and openid=:openid and status=1', array(':uniacid' => $_W['uniacid'], ':openid' => $row['openid']));
+			$row['ordermoney'] = pdo_fetchcolumn('select sum(price) from ' . tablename('ewei_shop_order') . ' where uniacid=:uniacid and openid=:openid and status=1', array(':uniacid' => $_W['uniacid'], ':openid' => $row['openid']));
 			$row['credit1'] = m('member')->getCredit($row['openid'], 'credit1');
 			$row['credit2'] = m('member')->getCredit($row['openid'], 'credit2');
 		}

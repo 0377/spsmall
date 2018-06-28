@@ -1,0 +1,30 @@
+{template '_header'}
+<div class='fui-page  fui-page-current'>
+    <div class="fui-header">
+        <div class="fui-header-left">
+            <a class="back" onclick='location.back()'></a>
+        </div>
+        <div class="title">耗材基金</div>
+        <div class="fui-header-right"></div>
+    </div>
+    <div style="height: 2.2rem; width: 100%">  </div>
+    <style type="text/css">
+        .np{margin: auto; width:100%; line-height: 1.5rem; font-size: 0.6rem;padding: 0 1rem 0 1rem}
+    </style>
+    <div class="fui-cell-group fui-cell-click">
+        <div style="margin: auto; width:100%; height: 2rem; line-height: 2rem; text-align: center; font-size: 0.8rem; font-weight: bold">耗材基金释放协议</div>
+        <p class="np">&nbsp;&nbsp;&nbsp;&nbsp;首先恭喜您和您的家人从此畅享安全净水，感谢您选择在“尚品阁”购买家用反渗透直饮净水机。</p>
+        <p class="np">&nbsp;&nbsp;&nbsp;&nbsp;为了您的净水机更好的使用、服务您和您的家人、畅享净水，“尚品阁”赠送您2999元耗材基金，加上之前下载“尚品阁”APP所赠送的188元红包，共计：3187元耗材基金，作为定期更换原厂滤芯费用。商城按1.5元/天释放到您的“个人钱包”内（直至全部释放完为止）。每三个月（90天）更换一次前三级原厂滤芯（本商城独家售卖），若您未按期购买、更换原厂则滤芯，则视为自动放弃“耗材基金”，系统自动冻结、停止释放。</p>
+        <p class="np">&nbsp;&nbsp;&nbsp;&nbsp;请仔细阅读本协议，接受本协议请点击同意签署合同，激活耗材基金。激活次日开始释放。</p>
+    </div>
+
+    <a href='#' id='btnSubmit' class='btn btn-success block'>同意签署合同</a>
+    <!--<a href='#' id='btnSubmit' class='btn btn-success block'>激活耗材基金</a>-->
+</div>
+
+<script language='javascript'>
+    require(['biz/member/account'], function (modal) {
+        modal.contract();
+    });
+</script>
+

@@ -1,1 +1,764 @@
-eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('2t([\'y\',\'27.28\',\'29.2c\'],h(y){n e={J:\'\',1z:1,V:0,15:0,O:0,L:0};e.2b=h(m){e.J=m.J;$(\'#C\').u(h(){7($(\'#C\').U(\'v\')){8}7(!$(\'#i\').17()){b.f.9(\'请输入11位手机号码\');8}7($(\'#z\').1a()){b.f.9(\'请输入登录密码\');8}$(\'#C\').q(\'正在登录...\').U(\'v\',1);y.P(\'l/I\',{i:$(\'#i\').j(),z:$(\'#z\').j()},h(g){b.f.9(g.w.B);7(g.A!=1){$(\'#C\').q(\'立即登录\').G(\'v\');8}T{$(\'#C\').q(\'正在跳转...\')}1r(h(){7(e.J){1d.1b=e.J;8}1d.1b=y.1h(\'\')},1W)},M,E)})};e.k=h(){e.Z--;7(e.Z>0){$(\'#X\').q(e.Z+\'秒后重发\').Y(\'H\').U(\'H\',\'H\');1r(h(){e.k()},1W)}T{$(\'#X\').q(\'获取验证码\').N(\'H\').G(\'H\')}};e.2e=h(m){e.J=m.J;e.1q=m.1q;e.R=m.R;e.p=m.p;7(e.R>0){e.Z=e.R;e.k()}$(\'#X\').u(h(){7($(\'#X\').1e(\'H\')){8}7(!$(\'#i\').17()){b.f.9(\'请输入11位手机号码\');8}7(!$.s($(\'#1f\').j())&&e.p==1){b.f.9(\'请输入图形验证码\');8}e.Z=1v;y.P(\'l/k\',{i:$(\'#i\').j(),p:$.s($(\'#1f\').j())||0,1F:!e.1q?"1U":"2h"},h(g){b.f.9(g.w.B);7(g.A!=1){$(\'#X\').q(\'获取验证码\').N(\'H\').G(\'H\')}7(g.A==-1&&e.p==1){$("#1I").2d(\'u\')}7(g.A==1){e.k()}},M,E)});$("#1I").u(h(){$(19).1E(\'1G\',\'../1K/1J.1B?c=1y&a=16&r=\'+1H.1A(1t 1u().1x()));8 M});$(\'#C\').u(h(){7($(\'#C\').U(\'v\')){8}7(!$(\'#i\').17()){b.f.9(\'请输入11位手机号码\');8}7(!$(\'#k\').1M()||$(\'#k\').1Q()!=5){b.f.9(\'请输入5位数字验证码\');8}7($(\'#z\').1a()){b.f.9(\'请输入登录密码\');8}7($(\'#1k\').1a()){b.f.9(\'请重复输入密码\');8}7($(\'#z\').j()!==$(\'#1k\').j()){b.f.9(\'两次密码输入不一致\');8}$(\'#C\').q(\'正在处理...\').U(\'v\',1);n 20=!e.1q?"l/1X":"l/2i";y.P(20,{i:$(\'#i\').j(),k:$(\'#k\').j(),z:$(\'#z\').j()},h(g){7(g.A!=1){b.f.9(g.w.B);n x=e.1q?"立即找回":"立即注册";$(\'#C\').q(x).G(\'v\');8}T{b.1C(g.w.B,\'\',h(){7(e.J){1d.1b=y.1h(\'l/I\',{i:$(\'#i\').j(),J:e.J})}T{1d.1b=y.1h(\'l/I\',{i:$(\'#i\').j()})}})}},M,E)})};e.26=h(m){e.R=m.R;e.J=m.J;e.p=m.p||0;7(e.R>0){e.Z=e.R;e.k()}$(\'#X\').u(h(){7($(\'#X\').1e(\'H\')){8}7(!$(\'#i\').17()){b.f.9(\'请输入11位手机号码!\');8}7(!$.s($(\'#1f\').j())&&e.p==1){b.f.9(\'请输入图形验证码\');8}e.Z=1v;y.P(\'l/k\',{i:$(\'#i\').j(),1F:\'1V\',p:$.s($(\'#1f\').j())||0},h(g){7(g.A!=1){b.f.9(g.w.B);$(\'#X\').q(\'获取验证码\').N(\'H\').G(\'H\')}7(g.A==1){e.k()}},M,E)});$(\'#C\').u(h(){7($(\'#C\').U(\'v\')){8}7(!$(\'#i\').17()){b.f.9(\'请输入11位手机号码\');8}7(!$(\'#k\').1M()||$(\'#k\').1Q()!=5){b.f.9(\'请输入5位数字验证码\');8}7($(\'#z\').1a()){b.f.9(\'请输入登录密码\');8}7($(\'#1k\').1a()){b.f.9(\'请重复输入密码\');8}7($(\'#z\').j()!==$(\'#1k\').j()){b.f.9(\'两次密码输入不一致\');8}$(\'#C\').q(\'正在绑定...\').U(\'v\',1);y.P(\'14/D\',{i:$(\'#i\').j(),k:$(\'#k\').j(),z:$(\'#z\').j()},h(g){7(g.A==0){b.f.9(g.w.B);$(\'#C\').q(\'立即绑定\').G(\'v\');8}7(g.A<0){b.1w(g.w.B,"注意",h(){y.P(\'14/D\',{i:$(\'#i\').j(),k:$(\'#k\').j(),z:$(\'#z\').j(),1w:1},h(g){7(g.A==1){b.1C(\'绑定成功!\',\'\',h(){1d.1b=m.J?1Z(m.J):y.1h(\'14\')});8}b.f.9(g.w.B);$(\'#C\').q(\'立即绑定\').G(\'v\');8},E,E)},h(){$(\'#C\').q(\'立即绑定\').G(\'v\')});8}b.1C(\'绑定成功!\',\'\',h(){1d.1b=m.J?1Z(m.J):y.1h(\'14\')})},E,E)});$("#1I").u(h(){$(19).1E(\'1G\',\'../1K/1J.1B?c=1y&a=16&r=\'+1H.1A(1t 1u().1x()));8 M})};e.2g=h(m){e.R=m.R;e.p=m.p;7(e.R>0){e.Z=e.R;e.k()}$(\'#X\').u(h(){7($(\'#X\').1e(\'H\')){8}7(!$(\'#i\').17()){b.f.9(\'请输入11位手机号码\');8}7(!$.s($(\'#1f\').j())&&e.p==1){b.f.9(\'请输入图形验证码\');8}e.Z=1v;y.P(\'l/k\',{i:$(\'#i\').j(),1F:\'2f\',p:$.s($(\'#1f\').j())||0},h(g){7(g.A!=1){b.f.9(g.w.B);$(\'#X\').q(\'获取验证码\').N(\'H\').G(\'H\')}7(g.A==1){e.k()}},M,E)});$(\'#C\').u(h(){7($(\'#C\').U(\'v\')){8}7(!$(\'#i\').17()){b.f.9(\'请输入11位手机号码\');8}7(!$(\'#k\').1M()||$(\'#k\').1Q()!=5){b.f.9(\'请输入5位数字验证码\');8}7($(\'#z\').1a()){b.f.9(\'请输入登录密码\');8}7($(\'#1k\').1a()){b.f.9(\'请重复输入密码\');8}7($(\'#z\').j()!==$(\'#1k\').j()){b.f.9(\'两次密码输入不一致\');8}$(\'#C\').q(\'正在修改...\').U(\'v\',1);y.P(\'14/2a\',{i:$(\'#i\').j(),k:$(\'#k\').j(),z:$(\'#z\').j()},h(g){7(g.A!=1){b.f.9(g.w.B);$(\'#C\').q(\'立即修改\').G(\'v\');8}b.1C(\'修改成功\',\'\',h(){1d.1b=y.1h(\'14\')})},M,E)});$("#1I").u(h(){$(19).1E(\'1G\',\'../1K/1J.1B?c=1y&a=16&r=\'+1H.1A(1t 1u().1x()));8 M})};e.2k=h(m){n 1o=$(\'#l-W\');n x={I:\'登录\',D:\'为了您能及时接收到物流信息<2q>请绑定手机号后购买\',F:\'注册\',1L:\'填写个人信息\'};n 3=1t 2v({2x:1o.q(),2u:"2y-e"});$(\'.l-1s\',3.3).1c(\'u\').u(h(){3.1s()});$(\'.l-W\',3.3).Y(m.S);n 13=m.S==\'D\'?x.D:x.I;$(\'.l-13\',3.3).q(13);7(m.R>0){e.Z=m.R;e.k()}T{$(\'#X\').N(\'H\')}7(m.p==1){$(\'.l-W\',3.3).Y(\'p\')}7(m.S==\'D\'){y.P(\'14/D/2w\',{},h(g){e.1z=g.w.1z;e.V=g.w.V;e.15=g.w.15;e.O=g.w.O;e.L=g.w.L;$(\'.o-t\',3.3).9();7(e.1z==1){$(\'.l-10\',3.3).12();$(\'.l-18\',3.3).9();$(\'.l-18\',3.3).x(\'绑定\')}3.9()},M,M)}T{3.9()}$(\'.l-18\',3.3).1c(\'u\').u(h(){n K=$(19);7(K.U(\'v\')){b.f.9(\'操作中...\');8}n i=$.s($(\'.o-i\',3.3).j());7(!i||i==\'\'){b.f.9(\'请填写手机号\');8}7(!$.17(i)){b.f.9(\'请填写正确手机号\');8}7(m.S==\'I\'){n t=$.s($(\'.o-t\',3.3).j());7(!t||t==\'\'){b.f.9(\'请填写密码\');8}K.x(\'登录中...\').U(\'v\',1);y.P(\'l/I\',{i:i,z:t},h(g){7(g.A!=1){b.f.9(g.w.B);K.x(\'登录\').G(\'v\');8}3.1s();b.1j.9(\'登录成功\',\'1i 1i-1T\');1r(h(){b.1j.12();7(m.1n){m.1n()}},1S)},M,E)}T 7(m.S==\'D\'){n k=$.s($(\'.o-1R\',3.3).j());7(!k||k==\'\'){b.f.9(\'请填写验证码\');8}7(!e.1l(k)){b.f.9(\'请填写5位验证码\');8}n t=$.s($(\'.o-t\',3.3).j());7(!t||t==\'\'){b.f.9(\'请填写密码\');8}7(!e.1D(t)){b.f.9(\'密码至少6位\');8}n V="";n 1m=0;n 1g=0;n Q=0;n O="";n L="";7(e.V==1){V=$.s($(\'.o-V\',3.3).j());7(!V||V==\'\'){b.f.9(\'请填写真实姓名\');8}}7(e.15==1){n Q=$.s($(\'.o-15\',3.3).j());7(Q!=2j&&Q!=\'\'){n Q=Q.2l(\'-\');1m=Q[0];1g=Q[1];Q=Q[2]}T{b.f.9(\'请选择出生日期\');8}}7(e.O==1){O=$.s($(\'.o-O\',3.3).j());7(!O||O==\'\'||!$(\'.o-O\',3.3).2r()){b.f.9(\'请填写正确身份证号码\');8}}7(e.L==1){L=$.s($(\'.o-L\',3.3).j());7(!L||L==\'\'){b.f.9(\'请填写微信号\');8}}K.x(\'绑定中...\').U(\'v\',1);y.P(\'14/D\',{i:i,k:k,z:t,22:V,1m:1m,1g:1g,Q:Q,24:O,L:L},h(g){7(g.A==0){7(g.w.B==\'验证码错误或已过期\'){$(\'.l-25 23\',3.3).u()}b.f.9(g.w.B);K.q(\'绑定\').G(\'v\');8}T 7(g.A<0){3.3.12();b.1w(g.w.B,"注意",h(){y.P(\'14/D\',{i:i,k:k,z:t,1w:1,22:V,1m:1m,1g:1g,Q:Q,24:O,L:L},h(g){7(g.A==1){3.1s();b.1j.9(\'绑定成功\',\'1i 1i-1T\');1r(h(){b.1j.12();7(m.1n){m.1n()}},1S);8}b.f.9(g.w.B);K.q(\'绑定\').G(\'v\');8},E,E)},h(){K.q(\'绑定\').G(\'v\');3.3.9();$(\'.2p-21\').2o();b.21.9()});8}3.1s();b.1j.9(\'绑定成功\',\'1i 1i-1T\');1r(h(){b.1j.12();7(m.1n){m.1n()}},1S)},M,E)}T 7(m.S==\'F\'){n k=$.s($(\'.o-1R\',3.3).j());7(!k||k==\'\'){b.f.9(\'请填写验证码\');8}7(!e.1l(k)){b.f.9(\'请填写5位验证码\');8}n t=$.s($(\'.o-t\',3.3).j());7(!t||t==\'\'){b.f.9(\'请填写密码\');8}7(!e.1D(t)){b.f.9(\'密码至少6位\');8}n 1p=$.s($(\'.o-1p\',3.3).j());7(!1p||1p==\'\'){b.f.9(\'请重复填写密码\');8}7(t!=1p){b.f.9(\'两次输入的密码不一致\');8}K.x(\'注册中...\').U(\'v\',1);y.P(\'l/1X\',{i:i,k:k,z:t},h(g){7(g.A!=1){b.f.9(g.w.B);K.x(\'注册\').G(\'v\');7(g.w.B==\'验证码错误或已过期\'){$(\'.l-W\',3.3).N(\'F-10\').Y(\'F\')}8}T{b.f.9(\'注册成功，请登录\');$(\'.l-W\',3.3).N(\'F-10\').Y(\'I\');m.S=\'I\';K.x(\'登录\').G(\'v\')}},M,E)}});$(\'.18-2m\',3.3).1c(\'u\').u(h(){n K=$(19);7(K.1e(\'H\')){8}n i=$.s($(\'.o-i\',3.3).j());7(!i||i==\'\'){b.f.9(\'请填写手机号\');8}n p=0;7(m.p==1){n p=$.s($(\'.o-1N\',3.3).j());7(!p||p==\'\'){b.f.9(\'请填写图形验证码\');8}7(!e.1l(p,E)){b.f.9(\'请填写4位图形验证码\');8}}e.Z=1v;y.P(\'l/k\',{i:i,1F:m.S==\'D\'?\'1V\':\'1U\',p:p},h(g){7(g.A!=1){b.f.9(g.w.B);K.q(\'发送验证码\').N(\'H\');7(g.w.B==\'此手机号已注册，请直接登录\'){$(\'.l-W\',3.3).N(\'F\').Y(\'I\');m.S=\'I\';$(\'.l-18\',3.3).x(\'登录\').G(\'v\');$(\'.l-13\',3.3).q(x.I)}}7(g.A==1){b.f.9(\'发送成功\');e.k()}},M,E)});$(\'.l-10\',3.3).1c(\'u\').u(h(){n K=$(19);7(K.U(\'v\')){b.f.9(\'操作中...\');8}n i=$.s($(\'.o-i\',3.3).j());7(!i||i==\'\'){b.f.9(\'请填写手机号\');8}7(!$.17(i)){b.f.9(\'请填写正确手机号\');8}n p=0;7(m.p==1){p=$.s($(\'.o-1N\',3.3).j());7(!p||p==\'\'){b.f.9(\'请填写图形验证码\');8}7(!e.1l(p,E)){b.f.9(\'请填写4位图形验证码\');8}}n k=$.s($(\'.o-1R\',3.3).j());7(!k||k==\'\'){b.f.9(\'请填写短信验证码\');8}7(!e.1l(k)){b.f.9(\'请填写5位短信验证码\');8}7(m.S==\'D\'){n t=$.s($(\'.o-t\',3.3).j());7(!t||t==\'\'){b.f.9(\'请填写密码\');8}7(!e.1D(t)){b.f.9(\'密码至少6位\');8}7(e.V==1){$(\'.o-V\',3.3).9()}7(e.15==1){$(\'.o-15\',3.3).9();$(\'.o-15\',3.3).2n()}7(e.O==1){$(\'.o-O\',3.3).9()}7(e.L==1){$(\'.o-L\',3.3).9()}$(\'.o-t\',3.3).12();$(\'.l-W\',3.3).N(\'D\').Y(\'D-10\');$(\'.l-13\',3.3).q(x.1L);$(\'.l-18\',3.3).x(\'绑定\')}T 7(m.S==\'F\'){$(\'.l-W\',3.3).N(\'F\').Y(\'F-10\');$(\'.l-13\',3.3).q(x.1L);$(\'.l-18\',3.3).x(\'注册\')}});$(\'.l-25 23\',3.3).1c(\'u\').u(h(){7(m.S==\'I\'){$(\'.l-13\',3.3).q(x.F);$(\'.l-W\',3.3).N(\'I\').Y(\'F\');m.S=\'F\'}});$(\'.l-2s\',3.3).1c(\'u\').u(h(){n 1o=$(\'.l-W\',3.3);7(1o.1e(\'F-10\')){$(\'.l-W\',3.3).N(\'F-10\').Y(\'F\');$(\'.l-13\',3.3).q(x.F)}T 7(1o.1e(\'F\')){$(\'.l-W\',3.3).N(\'F\').Y(\'I\');$(\'.l-13\',3.3).q(x.I);m.S=\'I\'}T 7(1o.1e(\'D-10\')){$(\'.l-W\',3.3).N(\'D-10\').Y(\'D\');$(\'.l-13\',3.3).q(x.D);$(\'.o-t\',3.3).9();$(\'.o-V\',3.3).12();$(\'.o-15\',3.3).12();$(\'.o-O\',3.3).12();$(\'.o-L\',3.3).12()}});$(\'.18-1N\',3.3).1c(\'u\').u(h(){$(19).1E(\'1G\',\'../1K/1J.1B?c=1y&a=16&r=\'+1H.1A(1t 1u().1x()));8 M})};e.1l=h(16,1Y){7(1Y){8 $.s(16)!==\'\'&&/^\\d{4}$/.1O($.s(16))}8 $.s(16)!==\'\'&&/^\\d{5}$/.1O($.s(16))};e.1D=h(1P){8 $.s(1P)!==\'\'&&/^.{6,}$/.1O($.s(1P))};8 e});',62,159,'|||container||||if|return|show||FoxUI|||modal|toast|ret|function|mobile|val|verifycode|account|params|var|input|imgcode|html||trim|password|click|stop|result|text|core|pwd|status|message|btnSubmit|bind|true|reg|removeAttr|disabled|login|backurl|_this|bindwechat|false|removeClass|bindidnumber|json|birthday|endtime|action|else|attr|bindrealname|layer|btnCode|addClass|seconds|next||hide|title|member|bindbirthday|code|isMobile|btn|this|isEmpty|href|unbind|location|hasClass|verifycode2|birthmonth|getUrl|icon|loader|pwd1|codeLen|birthyear|success|obj|password2|type|setTimeout|close|new|Date|60|confirm|getTime|utility|nohasbindinfo|round|php|alert|strLen|prop|temp|src|Math|btnCode2|index|web|pass|isInt|image|test|str|len|verify|500|check|sms_reg|sms_bind|1000|register|img|atob|url|mask|realname|span|idnumber|tip|initBind|foxui|picker|jquery|changepwd|initLogin|gcjs|trigger|initRf|sms_changepwd|initChange|sms_forget|forget|undefined|initQuick|split|send|datePicker|remove|fui|br|isIDCard|back|define|extraClass|FoxUIModal|getbindinfo|content|popup'.split('|'),0,{}))
+define(['core', 'foxui.picker', 'jquery.gcjs'], function(core) {
+    var modal = {
+        backurl: '',
+        nohasbindinfo: 1,
+        bindrealname: 0,
+        bindbirthday: 0,
+        bindidnumber: 0,
+        bindwechat: 0
+    };
+    modal.initLogin = function(params) {
+        modal.backurl = params.backurl;
+        $('#btnSubmit').click(function() {
+            if ($('#btnSubmit').attr('stop')) {
+                return
+            }
+            if (!$('#mobile').isMobile()) {
+                FoxUI.toast.show('请输入11位手机号码');
+                return
+            }
+            if ($('#pwd').isEmpty()) {
+                FoxUI.toast.show('请输入登录密码');
+                return
+            }
+            $('#btnSubmit').html('正在登录...').attr('stop', 1);
+            core.json('account/login', {
+                mobile: $('#mobile').val(),
+                pwd: $('#pwd').val()
+            }, function(ret) {
+                FoxUI.toast.show(ret.result.message);
+                if (ret.status != 1) {
+                    $('#btnSubmit').html('立即登录').removeAttr('stop');
+                    return
+                } else {
+                    $('#btnSubmit').html('正在跳转...')
+                }
+                setTimeout(function() {
+                    if (modal.backurl) {
+                        location.href = modal.backurl;
+                        return
+                    }
+                    location.href = core.getUrl('')
+                }, 1000)
+            }, false, true)
+        })
+    };
+    modal.verifycode = function() {
+        modal.seconds--;
+        if (modal.seconds > 0) {
+            $('#btnCode').html(modal.seconds + '秒后重发').addClass('disabled').attr('disabled', 'disabled');
+            setTimeout(function() {
+                modal.verifycode()
+            }, 1000)
+        } else {
+            $('#btnCode').html('获取验证码').removeClass('disabled').removeAttr('disabled')
+        }
+    };
+    modal.initRf = function(params) {
+        modal.backurl = params.backurl;
+        modal.type = params.type;
+        modal.endtime = params.endtime;
+        modal.imgcode = params.imgcode;
+        if (modal.endtime > 0) {
+            modal.seconds = modal.endtime;
+            modal.verifycode()
+        }
+        $('#btnCode').click(function() {
+            if ($('#btnCode').hasClass('disabled')) {
+                return
+            }
+            if (!$('#mobile').isMobile()) {
+                FoxUI.toast.show('请输入11位手机号码');
+                return
+            }
+            if (!$.trim($('#verifycode2').val()) && modal.imgcode == 1) {
+                FoxUI.toast.show('请输入图形验证码');
+                return
+            }
+            modal.seconds = 60;
+            core.json('account/verifycode', {
+                mobile: $('#mobile').val(),
+                imgcode: $.trim($('#verifycode2').val()) || 0,
+                temp: !modal.type ? "sms_reg" : "sms_forget"
+            }, function(ret) {
+                FoxUI.toast.show(ret.result.message);
+                if (ret.status != 1) {
+                    $('#btnCode').html('获取验证码').removeClass('disabled').removeAttr('disabled')
+                }
+                if (ret.status == -1 && modal.imgcode == 1) {
+                    $("#btnCode2").trigger('click')
+                }
+                if (ret.status == 1) {
+                    modal.verifycode()
+                }
+            }, false, true)
+        });
+        $("#btnCode2").click(function() {
+            $(this).prop('src', '../web/index.php?c=utility&a=code&r=' + Math.round(new Date().getTime()));
+            return false
+        });
+        $('#btnSubmit').click(function() {
+            if ($('#btnSubmit').attr('stop')) {
+                return
+            }
+            if (!$('#mobile').isMobile()) {
+                FoxUI.toast.show('请输入11位手机号码');
+                return
+            }
+            if (!$('#verifycode').isInt() || $('#verifycode').len() != 5) {
+                FoxUI.toast.show('请输入5位数字验证码');
+                return
+            }
+            if ($('#pwd').isEmpty()) {
+                FoxUI.toast.show('请输入登录密码');
+                return
+            }
+            if ($('#pwd1').isEmpty()) {
+                FoxUI.toast.show('请重复输入密码');
+                return
+            }
+            if ($('#pwd').val() !== $('#pwd1').val()) {
+                FoxUI.toast.show('两次密码输入不一致');
+                return
+            }
+            $('#btnSubmit').html('正在处理...').attr('stop', 1);
+            var url = !modal.type ? "account/register" : "account/forget";
+            core.json(url, {
+                mobile: $('#mobile').val(),
+                verifycode: $('#verifycode').val(),
+                pwd: $('#pwd').val()
+            }, function(ret) {
+                if (ret.status != 1) {
+                    FoxUI.toast.show(ret.result.message);
+                    var text = modal.type ? "立即找回" : "立即注册";
+                    $('#btnSubmit').html(text).removeAttr('stop');
+                    return
+                } else {
+                    FoxUI.alert(ret.result.message, '', function() {
+                        if (modal.backurl) {
+                            location.href = core.getUrl('account/login', {
+                                mobile: $('#mobile').val(),
+                                backurl: modal.backurl
+                            })
+                        } else {
+                            location.href = core.getUrl('account/login', {
+                                mobile: $('#mobile').val()
+                            })
+                        }
+                    })
+                }
+            }, false, true)
+        })
+    };
+    modal.initBind = function(params) {
+        modal.endtime = params.endtime;
+        modal.backurl = params.backurl;
+        modal.imgcode = params.imgcode || 0;
+        if (modal.endtime > 0) {
+            modal.seconds = modal.endtime;
+            modal.verifycode()
+        }
+        $('#btnCode').click(function() {
+            if ($('#btnCode').hasClass('disabled')) {
+                return
+            }
+            if (!$('#mobile').isMobile()) {
+                FoxUI.toast.show('请输入11位手机号码!');
+                return
+            }
+            if (!$.trim($('#verifycode2').val()) && modal.imgcode == 1) {
+                FoxUI.toast.show('请输入图形验证码');
+                return
+            }
+            modal.seconds = 60;
+            core.json('account/verifycode', {
+                mobile: $('#mobile').val(),
+                temp: 'sms_bind',
+                imgcode: $.trim($('#verifycode2').val()) || 0
+            }, function(ret) {
+                if (ret.status != 1) {
+                    FoxUI.toast.show(ret.result.message);
+                    $('#btnCode').html('获取验证码').removeClass('disabled').removeAttr('disabled')
+                }
+                if (ret.status == 1) {
+                    modal.verifycode()
+                }
+            }, false, true)
+        });
+        $('#btnSubmit').click(function() {
+            if ($('#btnSubmit').attr('stop')) {
+                return
+            }
+            if (!$('#mobile').isMobile()) {
+                FoxUI.toast.show('请输入11位手机号码');
+                return
+            }
+            if (!$('#verifycode').isInt() || $('#verifycode').len() != 5) {
+                FoxUI.toast.show('请输入5位数字验证码');
+                return
+            }
+            if ($('#pwd').isEmpty()) {
+                FoxUI.toast.show('请输入登录密码');
+                return
+            }
+            if ($('#pwd1').isEmpty()) {
+                FoxUI.toast.show('请重复输入密码');
+                return
+            }
+            if ($('#pwd').val() !== $('#pwd1').val()) {
+                FoxUI.toast.show('两次密码输入不一致');
+                return
+            }
+            $('#btnSubmit').html('正在绑定...').attr('stop', 1);
+            core.json('member/bind', {
+                mobile: $('#mobile').val(),
+                verifycode: $('#verifycode').val(),
+                pwd: $('#pwd').val()
+            }, function(ret) {
+                if (ret.status == 0) {
+                    FoxUI.toast.show(ret.result.message);
+                    $('#btnSubmit').html('立即绑定').removeAttr('stop');
+                    return
+                }
+                if (ret.status < 0) {
+                    FoxUI.confirm(ret.result.message, "注意", function() {
+                        core.json('member/bind', {
+                            mobile: $('#mobile').val(),
+                            verifycode: $('#verifycode').val(),
+                            pwd: $('#pwd').val(),
+                            confirm: 1
+                        }, function(ret) {
+                            if (ret.status == 1) {
+                                FoxUI.alert('绑定成功!', '', function() {
+                                    location.href = params.backurl ? atob(params.backurl) : core.getUrl('member')
+                                });
+                                return
+                            }
+                            FoxUI.toast.show(ret.result.message);
+                            $('#btnSubmit').html('立即绑定').removeAttr('stop');
+                            return
+                        }, true, true)
+                    }, function() {
+                        $('#btnSubmit').html('立即绑定').removeAttr('stop')
+                    });
+                    return
+                }
+                FoxUI.alert('绑定成功!', '', function() {
+                    location.href = params.backurl ? atob(params.backurl) : core.getUrl('member')
+                })
+            }, true, true)
+        });
+        $("#btnCode2").click(function() {
+            $(this).prop('src', '../web/index.php?c=utility&a=code&r=' + Math.round(new Date().getTime()));
+            return false
+        })
+    };
+    modal.initChange = function(params) {
+        modal.endtime = params.endtime;
+        modal.imgcode = params.imgcode;
+        if (modal.endtime > 0) {
+            modal.seconds = modal.endtime;
+            modal.verifycode()
+        }
+        $('#btnCode').click(function() {
+            if ($('#btnCode').hasClass('disabled')) {
+                return
+            }
+            if (!$('#mobile').isMobile()) {
+                FoxUI.toast.show('请输入11位手机号码');
+                return
+            }
+            if (!$.trim($('#verifycode2').val()) && modal.imgcode == 1) {
+                FoxUI.toast.show('请输入图形验证码');
+                return
+            }
+            modal.seconds = 60;
+            core.json('account/verifycode', {
+                mobile: $('#mobile').val(),
+                temp: 'sms_changepwd',
+                imgcode: $.trim($('#verifycode2').val()) || 0
+            }, function(ret) {
+                if (ret.status != 1) {
+                    FoxUI.toast.show(ret.result.message);
+                    $('#btnCode').html('获取验证码').removeClass('disabled').removeAttr('disabled')
+                }
+                if (ret.status == 1) {
+                    modal.verifycode()
+                }
+            }, false, true)
+        });
+        $('#btnSubmit').click(function() {
+            if ($('#btnSubmit').attr('stop')) {
+                return
+            }
+            if (!$('#mobile').isMobile()) {
+                FoxUI.toast.show('请输入11位手机号码');
+                return
+            }
+            if (!$('#verifycode').isInt() || $('#verifycode').len() != 5) {
+                FoxUI.toast.show('请输入5位数字验证码');
+                return
+            }
+            if ($('#pwd').isEmpty()) {
+                FoxUI.toast.show('请输入登录密码');
+                return
+            }
+            if ($('#pwd1').isEmpty()) {
+                FoxUI.toast.show('请重复输入密码');
+                return
+            }
+            if ($('#pwd').val() !== $('#pwd1').val()) {
+                FoxUI.toast.show('两次密码输入不一致');
+                return
+            }
+            $('#btnSubmit').html('正在修改...').attr('stop', 1);
+            core.json('member/changepwd', {
+                mobile: $('#mobile').val(),
+                verifycode: $('#verifycode').val(),
+                pwd: $('#pwd').val()
+            }, function(ret) {
+                if (ret.status != 1) {
+                    FoxUI.toast.show(ret.result.message);
+                    $('#btnSubmit').html('立即修改').removeAttr('stop');
+                    return
+                }
+                FoxUI.alert('修改成功', '', function() {
+                    location.href = core.getUrl('member')
+                })
+            }, false, true)
+        });
+        $("#btnCode2").click(function() {
+            $(this).prop('src', '../web/index.php?c=utility&a=code&r=' + Math.round(new Date().getTime()));
+            return false
+        })
+    };
+    modal.initQuick = function(params) {
+        var obj = $('#account-layer');
+        var text = {
+            login: '登录',
+            bind: '为了您能及时接收到物流信息<br>请绑定手机号后购买',
+            reg: '注册',
+            pass: '填写个人信息'
+        };
+        var container = new FoxUIModal({
+            content: obj.html(),
+            extraClass: "popup-modal"
+        });
+        $('.account-close', container.container).unbind('click').click(function() {
+            container.close()
+        });
+        $('.account-layer', container.container).addClass(params.action);
+        var title = params.action == 'bind' ? text.bind : text.login;
+        $('.account-title', container.container).html(title);
+        if (params.endtime > 0) {
+            modal.seconds = params.endtime;
+            modal.verifycode()
+        } else {
+            $('#btnCode').removeClass('disabled')
+        }
+        if (params.imgcode == 1) {
+            $('.account-layer', container.container).addClass('imgcode')
+        }
+        if (params.action == 'bind') {
+            core.json('member/bind/getbindinfo', {}, function(ret) {
+                modal.nohasbindinfo = ret.result.nohasbindinfo;
+                modal.bindrealname = ret.result.bindrealname;
+                modal.bindbirthday = ret.result.bindbirthday;
+                modal.bindidnumber = ret.result.bindidnumber;
+                modal.bindwechat = ret.result.bindwechat;
+                $('.input-password', container.container).show();
+                if (modal.nohasbindinfo == 1) {
+                    $('.account-next', container.container).hide();
+                    $('.account-btn', container.container).show();
+                    $('.account-btn', container.container).text('绑定')
+                }
+                container.show()
+            }, false, false)
+        } else {
+            container.show()
+        }
+        $('.account-btn', container.container).unbind('click').click(function() {
+            var _this = $(this);
+            if (_this.attr('stop')) {
+                FoxUI.toast.show('操作中...');
+                return
+            }
+            var mobile = $.trim($('.input-mobile', container.container).val());
+            if (!mobile || mobile == '') {
+                FoxUI.toast.show('请填写手机号');
+                return
+            }
+            if (!$.isMobile(mobile)) {
+                FoxUI.toast.show('请填写正确手机号');
+                return
+            }
+            if (params.action == 'login') {
+                var password = $.trim($('.input-password', container.container).val());
+                if (!password || password == '') {
+                    FoxUI.toast.show('请填写密码');
+                    return
+                }
+                _this.text('登录中...').attr('stop', 1);
+                core.json('account/login', {
+                    mobile: mobile,
+                    pwd: password
+                }, function(ret) {
+                    if (ret.status != 1) {
+                        FoxUI.toast.show(ret.result.message);
+                        _this.text('登录').removeAttr('stop');
+                        return
+                    }
+                    container.close();
+                    FoxUI.loader.show('登录成功', 'icon icon-check');
+                    setTimeout(function() {
+                        FoxUI.loader.hide();
+                        if (params.success) {
+                            params.success()
+                        }
+                    }, 500)
+                }, false, true)
+            } else if (params.action == 'bind') {
+                var verifycode = $.trim($('.input-verify', container.container).val());
+                if (!verifycode || verifycode == '') {
+                    FoxUI.toast.show('请填写验证码');
+                    return
+                }
+                if (!modal.codeLen(verifycode)) {
+                    FoxUI.toast.show('请填写5位验证码');
+                    return
+                }
+                var password = $.trim($('.input-password', container.container).val());
+                if (!password || password == '') {
+                    FoxUI.toast.show('请填写密码');
+                    return
+                }
+                if (!modal.strLen(password)) {
+                    FoxUI.toast.show('密码至少6位');
+                    return
+                }
+                var bindrealname = "";
+                var birthyear = 0;
+                var birthmonth = 0;
+                var birthday = 0;
+                var bindidnumber = "";
+                var bindwechat = "";
+                if (modal.bindrealname == 1) {
+                    bindrealname = $.trim($('.input-bindrealname', container.container).val());
+                    if (!bindrealname || bindrealname == '') {
+                        FoxUI.toast.show('请填写真实姓名');
+                        return
+                    }
+                }
+                if (modal.bindbirthday == 1) {
+                    var birthday = $.trim($('.input-bindbirthday', container.container).val());
+                    if (birthday != undefined && birthday != '') {
+                        var birthday = birthday.split('-');
+                        birthyear = birthday[0];
+                        birthmonth = birthday[1];
+                        birthday = birthday[2]
+                    } else {
+                        FoxUI.toast.show('请选择出生日期');
+                        return
+                    }
+                }
+                if (modal.bindidnumber == 1) {
+                    bindidnumber = $.trim($('.input-bindidnumber', container.container).val());
+                    if (!bindidnumber || bindidnumber == '' || !$('.input-bindidnumber', container.container).isIDCard()) {
+                        FoxUI.toast.show('请填写正确身份证号码');
+                        return
+                    }
+                }
+                if (modal.bindwechat == 1) {
+                    bindwechat = $.trim($('.input-bindwechat', container.container).val());
+                    if (!bindwechat || bindwechat == '') {
+                        FoxUI.toast.show('请填写微信号');
+                        return
+                    }
+                }
+                _this.text('绑定中...').attr('stop', 1);
+                core.json('member/bind', {
+                    mobile: mobile,
+                    verifycode: verifycode,
+                    pwd: password,
+                    realname: bindrealname,
+                    birthyear: birthyear,
+                    birthmonth: birthmonth,
+                    birthday: birthday,
+                    idnumber: bindidnumber,
+                    bindwechat: bindwechat
+                }, function(ret) {
+                    if (ret.status == 0) {
+                        if (ret.result.message == '验证码错误或已过期') {
+                            $('.account-tip span', container.container).click()
+                        }
+                        FoxUI.toast.show(ret.result.message);
+                        _this.html('绑定').removeAttr('stop');
+                        return
+                    } else if (ret.status < 0) {
+                        container.container.hide();
+                        FoxUI.confirm(ret.result.message, "注意", function() {
+                            core.json('member/bind', {
+                                mobile: mobile,
+                                verifycode: verifycode,
+                                pwd: password,
+                                confirm: 1,
+                                realname: bindrealname,
+                                birthyear: birthyear,
+                                birthmonth: birthmonth,
+                                birthday: birthday,
+                                idnumber: bindidnumber,
+                                bindwechat: bindwechat
+                            }, function(ret) {
+                                if (ret.status == 1) {
+                                    container.close();
+                                    FoxUI.loader.show('绑定成功', 'icon icon-check');
+                                    setTimeout(function() {
+                                        FoxUI.loader.hide();
+                                        if (params.success) {
+                                            params.success()
+                                        }
+                                    }, 500);
+                                    return
+                                }
+                                FoxUI.toast.show(ret.result.message);
+                                _this.html('绑定').removeAttr('stop');
+                                return
+                            }, true, true)
+                        }, function() {
+                            _this.html('绑定').removeAttr('stop');
+                            container.container.show();
+                            $('.fui-mask').remove();
+                            FoxUI.mask.show()
+                        });
+                        return
+                    }
+                    container.close();
+                    FoxUI.loader.show('绑定成功', 'icon icon-check');
+                    setTimeout(function() {
+                        FoxUI.loader.hide();
+                        if (params.success) {
+                            params.success()
+                        }
+                    }, 500)
+                }, false, true)
+            } else if (params.action == 'reg') {
+                var verifycode = $.trim($('.input-verify', container.container).val());
+                if (!verifycode || verifycode == '') {
+                    FoxUI.toast.show('请填写验证码');
+                    return
+                }
+                if (!modal.codeLen(verifycode)) {
+                    FoxUI.toast.show('请填写5位验证码');
+                    return
+                }
+                var password = $.trim($('.input-password', container.container).val());
+                if (!password || password == '') {
+                    FoxUI.toast.show('请填写密码');
+                    return
+                }
+                if (!modal.strLen(password)) {
+                    FoxUI.toast.show('密码至少6位');
+                    return
+                }
+                var password2 = $.trim($('.input-password2', container.container).val());
+                if (!password2 || password2 == '') {
+                    FoxUI.toast.show('请重复填写密码');
+                    return
+                }
+                if (password != password2) {
+                    FoxUI.toast.show('两次输入的密码不一致');
+                    return
+                }
+                _this.text('注册中...').attr('stop', 1);
+                core.json('account/register', {
+                    mobile: mobile,
+                    verifycode: verifycode,
+                    pwd: password
+                }, function(ret) {
+                    if (ret.status != 1) {
+                        FoxUI.toast.show(ret.result.message);
+                        _this.text('注册').removeAttr('stop');
+                        if (ret.result.message == '验证码错误或已过期') {
+                            $('.account-layer', container.container).removeClass('reg-next').addClass('reg')
+                        }
+                        return
+                    } else {
+                        FoxUI.toast.show('注册成功，请登录');
+                        $('.account-layer', container.container).removeClass('reg-next').addClass('login');
+                        params.action = 'login';
+                        _this.text('登录').removeAttr('stop')
+                    }
+                }, false, true)
+            }
+        });
+        $('.btn-send', container.container).unbind('click').click(function() {
+            var _this = $(this);
+            if (_this.hasClass('disabled')) {
+                return
+            }
+            var mobile = $.trim($('.input-mobile', container.container).val());
+            if (!mobile || mobile == '') {
+                FoxUI.toast.show('请填写手机号');
+                return
+            }
+            var imgcode = 0;
+            if (params.imgcode == 1) {
+                var imgcode = $.trim($('.input-image', container.container).val());
+                if (!imgcode || imgcode == '') {
+                    FoxUI.toast.show('请填写图形验证码');
+                    return
+                }
+                if (!modal.codeLen(imgcode, true)) {
+                    FoxUI.toast.show('请填写4位图形验证码');
+                    return
+                }
+            }
+            modal.seconds = 60;
+            core.json('account/verifycode', {
+                mobile: mobile,
+                temp: params.action == 'bind' ? 'sms_bind' : 'sms_reg',
+                imgcode: imgcode
+            }, function(ret) {
+                if (ret.status != 1) {
+                    FoxUI.toast.show(ret.result.message);
+                    _this.html('发送验证码').removeClass('disabled');
+                    if (ret.result.message == '此手机号已注册，请直接登录') {
+                        $('.account-layer', container.container).removeClass('reg').addClass('login');
+                        params.action = 'login';
+                        $('.account-btn', container.container).text('登录').removeAttr('stop');
+                        $('.account-title', container.container).html(text.login)
+                    }
+                }
+                if (ret.status == 1) {
+                    FoxUI.toast.show('发送成功');
+                    modal.verifycode()
+                }
+            }, false, true)
+        });
+        $('.account-next', container.container).unbind('click').click(function() {
+            var _this = $(this);
+            if (_this.attr('stop')) {
+                FoxUI.toast.show('操作中...');
+                return
+            }
+            var mobile = $.trim($('.input-mobile', container.container).val());
+            if (!mobile || mobile == '') {
+                FoxUI.toast.show('请填写手机号');
+                return
+            }
+            if (!$.isMobile(mobile)) {
+                FoxUI.toast.show('请填写正确手机号');
+                return
+            }
+            var imgcode = 0;
+            if (params.imgcode == 1) {
+                imgcode = $.trim($('.input-image', container.container).val());
+                if (!imgcode || imgcode == '') {
+                    FoxUI.toast.show('请填写图形验证码');
+                    return
+                }
+                if (!modal.codeLen(imgcode, true)) {
+                    FoxUI.toast.show('请填写4位图形验证码');
+                    return
+                }
+            }
+            var verifycode = $.trim($('.input-verify', container.container).val());
+            if (!verifycode || verifycode == '') {
+                FoxUI.toast.show('请填写短信验证码');
+                return
+            }
+            if (!modal.codeLen(verifycode)) {
+                FoxUI.toast.show('请填写5位短信验证码');
+                return
+            }
+            if (params.action == 'bind') {
+                var password = $.trim($('.input-password', container.container).val());
+                if (!password || password == '') {
+                    FoxUI.toast.show('请填写密码');
+                    return
+                }
+                if (!modal.strLen(password)) {
+                    FoxUI.toast.show('密码至少6位');
+                    return
+                }
+                if (modal.bindrealname == 1) {
+                    $('.input-bindrealname', container.container).show()
+                }
+                if (modal.bindbirthday == 1) {
+                    $('.input-bindbirthday', container.container).show();
+                    $('.input-bindbirthday', container.container).datePicker()
+                }
+                if (modal.bindidnumber == 1) {
+                    $('.input-bindidnumber', container.container).show()
+                }
+                if (modal.bindwechat == 1) {
+                    $('.input-bindwechat', container.container).show()
+                }
+                $('.input-password', container.container).hide();
+                $('.account-layer', container.container).removeClass('bind').addClass('bind-next');
+                $('.account-title', container.container).html(text.pass);
+                $('.account-btn', container.container).text('绑定')
+            } else if (params.action == 'reg') {
+                $('.account-layer', container.container).removeClass('reg').addClass('reg-next');
+                $('.account-title', container.container).html(text.pass);
+                $('.account-btn', container.container).text('注册')
+            }
+        });
+        $('.account-tip span', container.container).unbind('click').click(function() {
+            if (params.action == 'login') {
+                $('.account-title', container.container).html(text.reg);
+                $('.account-layer', container.container).removeClass('login').addClass('reg');
+                params.action = 'reg'
+            }
+        });
+        $('.account-back', container.container).unbind('click').click(function() {
+            var obj = $('.account-layer', container.container);
+            if (obj.hasClass('reg-next')) {
+                $('.account-layer', container.container).removeClass('reg-next').addClass('reg');
+                $('.account-title', container.container).html(text.reg)
+            } else if (obj.hasClass('reg')) {
+                $('.account-layer', container.container).removeClass('reg').addClass('login');
+                $('.account-title', container.container).html(text.login);
+                params.action = 'login'
+            } else if (obj.hasClass('bind-next')) {
+                $('.account-layer', container.container).removeClass('bind-next').addClass('bind');
+                $('.account-title', container.container).html(text.bind);
+                $('.input-password', container.container).show();
+                $('.input-bindrealname', container.container).hide();
+                $('.input-bindbirthday', container.container).hide();
+                $('.input-bindidnumber', container.container).hide();
+                $('.input-bindwechat', container.container).hide()
+            }
+        });
+        $('.btn-image', container.container).unbind('click').click(function() {
+            $(this).prop('src', '../web/index.php?c=utility&a=code&r=' + Math.round(new Date().getTime()));
+            return false
+        })
+    };
+    modal.codeLen = function(code, img) {
+        if (img) {
+            return $.trim(code) !== '' && /^\d{4}$/.test($.trim(code))
+        }
+        return $.trim(code) !== '' && /^\d{5}$/.test($.trim(code))
+    };
+    modal.strLen = function(str) {
+        return $.trim(str) !== '' && /^.{6,}$/.test($.trim(str))
+    };
+    modal.contract = function(params) {
+        $('#btnSubmit').click(function() {
+            $('#btnSubmit').html('正在提交...').attr('stop', 1);
+            core.json('member/index/contract', {
+                mobile: 1,
+            }, function(ret) {
+                if (ret.status != 1) {
+                    FoxUI.toast.show(ret.result.message);
+                }else {
+                    /*var iid = ret.result.message;*/
+                    FoxUI.toast.show(ret.result.message);
+                    location.href = core.getUrl('member/index');
+                }
+            }, false, true)
+        });
+    }
+    return modal
+});

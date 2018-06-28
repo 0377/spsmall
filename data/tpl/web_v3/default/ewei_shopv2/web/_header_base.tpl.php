@@ -41,16 +41,20 @@
         </script>
 
 
-        <!-- 兼容微擎1.5.3 -->
-        <?php  if(IMS_VERSION >= 1.5) { ?>
+        <!-- 兼容微商宝1.5.3 -->
+        <?php  if(IMS_VERSION >= 1.0) { ?>
         <link href="<?php  echo EWEI_SHOPV2_LOCAL?>static/css/we7.common.css?v=1.0.0" rel="stylesheet">
         <script type="text/javascript" src="./resource/js/lib/bootstrap.min.js"></script>
         <script type="text/javascript" src="./resource/js/app/common.min.js?v=20170802"></script>
         <script type="text/javascript">if(util){util.clip = function(){}}</script>
         <?php  } ?>
-        <!-- 兼容微擎1.6 -->
-        <?php  if(IMS_VERSION >= '1.6.9') { ?>
-        <link href="<?php  echo EWEI_SHOPV2_LOCAL?>static/css/we7.common169.css?v=1.0.0" rel="stylesheet">
+        <!-- 兼容微商宝1.6 -->
+        <?php  if(IMS_VERSION >= '1.0') { ?>
+			<link href="./resource/css/bootstrap.min.css?v=20180203" rel="stylesheet">
+			<link href="./resource/css/common.css?v=20180203" rel="stylesheet">
+			<script type="text/javascript" src="./resource/js/app/util.js?v=20180203"></script>
+			<script type="text/javascript" src="./resource/js/app/common.min.js?v=20180203"></script>
+			<script type="text/javascript" src="./resource/js/require.js?v=20180203"></script>
         <?php  } ?>
 
 

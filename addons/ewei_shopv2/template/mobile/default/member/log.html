@@ -4,15 +4,16 @@
         <div class="fui-header-left">
             <a class="back"></a>
         </div>
-        <div class="title">{if $_W['shopset']['trade']['withdraw']}{$_W['shopset']['trade']['moneytext']}明细{else}充值记录{/if}</div>
+        <!--<div class="title">{if $_W['shopset']['trade']['withdraw']}{$_W['shopset']['trade']['moneytext']}明细{else}充值记录{/if}</div>-->
+        <div class="title">提现记录</div>
     </div>
 
     <div class='fui-content navbar' >
 
         {if $_W['shopset']['trade']['withdraw']}
         <div id="tab" class="fui-tab fui-tab-danger">
-            <a data-tab="tab1"  class="external {if $_GPC['type']==0}active{/if}" data-type='0'>充值记录</a>
-            <a data-tab="tab2" class='external {if $_GPC['type']==1}active{/if}'  data-type='1'>提现记录</a>
+            <!--<a data-tab="tab1"  class="external {if $_GPC['type']==0}active{/if}" data-type='0'>充值记录</a>-->
+            <a data-tab="tab2" class="external {if $_GPC['type']==1}active{/if}" data-type='1'>提现记录明细</a>
         </div>
         {/if}
 

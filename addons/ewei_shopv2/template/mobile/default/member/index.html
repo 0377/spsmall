@@ -4,7 +4,7 @@
 		<div class="fui-header-left">
 			<a class="back" onclick='location.back()'></a>
 		</div>
-		<div class="title">会员中心</div>
+		<div class="title">个人中心</div>
 		<div class="fui-header-right"></div>
 	</div>
 
@@ -13,9 +13,9 @@
 			<div class="headinfo" style="z-index:100;border: none;">
 				<a class="setbtn" href="{php echo mobileUrl('member/info')}" data-nocache='true'><i class="icon icon-shezhi"></i></a>
 				<div class="child">
-					<div class="title">{$_W['shopset']['trade']['moneytext']}</div>
+					<div class="title">个人钱包</div>
 					<div class="num">{php echo number_format($member['credit2'],2)}</div>
-					{if empty($_W['shopset']['trade']['closerecharge'])}<a href="{php echo mobileUrl('member/recharge')}"><div class="btn">充值</div></a>{/if}
+
 				</div>
 				<div class="child userinfo">
 					<a href="{php echo mobileUrl('member/info')}" data-nocache="true" style="color: white;">
@@ -24,7 +24,7 @@
 					</a>
 					<div class="level" {if !empty($_W['shopset']['shop']['levelurl'])}onclick='location.href="{$_W['shopset']['shop']['levelurl']}"'{/if}>
 					{if empty($level['id'])}
-					[{if empty($_W['shopset']['shop']['levelname'])}普通会员{else}{$_W['shopset']['shop']['levelname']}{/if}]
+					<!--[{if empty($_W['shopset']['shop']['levelname'])}普通会员{else}{$_W['shopset']['shop']['levelname']}{/if}]-->
 					{else}
 					[{$level['levelname']}]
 					{/if}
@@ -32,14 +32,13 @@
 				</div>
 			</div>
 			<div class="child">
-				<div
-						 class="title">{$_W['shopset']['trade']['credittext']}</div>
-				<div class="num">{php echo number_format($member['credit1'],0)}</div>
-				{if $open_creditshop}<a href="{php echo mobileUrl('creditshop')}" class="external"><div class="btn">兑换</div></a>{/if}
+				<div class="title"><a href="{php echo mobileUrl('member/mymarket')}" style="color: #ffffff">我的市场</a></div>
+
+
 			</div>
 		</div>
 		<div class="member_header"></div>
-		</div>
+    </div>
 
     {if p('task')}
         {if p('task')->get_unread()}
@@ -250,23 +249,57 @@
         </div>
 	{/if}
 
+	<div class="fui-cell-group fui-cell-click">
+		<div class="fui-cell" >
+			<div class="fui-cell-icon"><i class="icon icon-profile"></i></div>
+			<div class="fui-cell-text"><p>我的ID码</p></div>
+			<div class="fui-cell-remark">{$member['uuid']}</div>
+		</div>
+	</div>
+
+	<div class="fui-cell-group fui-cell-click">
+		<!--<a class="fui-cell"  href="{php echo mobileUrl('member/lineup')}">-->
+		<a class="fui-cell"  href="{php echo mobileUrl('commission/qrcode')}">
+			<div class="fui-cell-icon"><i class="icon icon-profile"></i></div>
+			<div class="fui-cell-text"><p>推广码</p></div>
+			<div class="fui-cell-remark"></div>
+		</a>
+	</div>
+
 	{if $hascoupon}
 		<div class="fui-cell-group fui-cell-click">
-			 {if $hascouponcenter}
-			<a class="fui-cell" href="{php echo mobileUrl('sale/coupon')}">
-				<div class="fui-cell-icon"><i class="icon icon-lingquyouhuiquan1"></i></div>
-				<div class="fui-cell-text"><p>领取优惠券</p></div>
-				<div class="fui-cell-remark">
-					<span class="badge">{$couponnum}</span>
+            {if $healthy[status] == 1}
+			<a class="fui-cell"  href="{php echo mobileUrl('order',array('status'=>11))}">
+				<div class="fui-cell-icon"><i class="icon icon-wodeyouhuiquan"></i></div>
+				<div class="fui-cell-text"><p>耗材基金明细</p></div>
+				<div class="fui-cell-remark">当前基金：{php echo number_format($hcjj,2)}{if $statics['coupon']>0}<span  {if $statics['newcoupon']>0}style="background: #fe5455;color:#fff"{/if} class='badge'>  {if $statics['newcoupon']>0}new{else}{$statics['coupon']}{/if}</span>{/if}
 				</div>
 			</a>
-			 {/if}
-			<a class="fui-cell"  href="{php echo mobileUrl('sale/coupon/my')}">
+			<a class="fui-cell"  href="{php echo mobileUrl('order',array('status'=>12))}">
 				<div class="fui-cell-icon"><i class="icon icon-wodeyouhuiquan"></i></div>
-				<div class="fui-cell-text"><p>我的优惠券</p></div>
+				<div class="fui-cell-text"><p>耗材钱包明细</p></div>
+				<div class="fui-cell-remark">当前钱包：{php echo number_format($healthy['healthy_money'],2)}{if $statics['coupon']>0}<span  {if $statics['newcoupon']>0}style="background: #fe5455;color:#fff"{/if} class='badge'>  {if $statics['newcoupon']>0}new{else}{$statics['coupon']}{/if}</span>{/if}
+				</div>
+			</a>
+
+            {elseif $healthy[status] == '0'}
+            <a class="fui-cell"  href="{php echo mobileUrl('member/contract')}">
+                <div class="fui-cell-icon"><i class="icon icon-wodeyouhuiquan"></i></div>
+                <div class="fui-cell-text"><p>激活耗材基金</p></div>
+                <div class="fui-cell-remark">{if $statics['coupon']>0}<span  {if $statics['newcoupon']>0}style="background: #fe5455;color:#fff"{/if} class='badge'>  {if $statics['newcoupon']>0}new{else}{$statics['coupon']}{/if}</span>{/if}
+                </div>
+            </a>
+			{elseif $healthy[status] == NULL}
+
+            {/if}
+			{if $bonus_me['sum_id'] > 0}
+			<a class="fui-cell"  href="{php echo mobileUrl('member/wallet')}">
+				<div class="fui-cell-icon"><i class="icon icon-wodeyouhuiquan"></i></div>
+				<div class="fui-cell-text"><p style="color: red">营销收益明细</p></div>
 				<div class="fui-cell-remark">{if $statics['coupon']>0}<span  {if $statics['newcoupon']>0}style="background: #fe5455;color:#fff"{/if} class='badge'>  {if $statics['newcoupon']>0}new{else}{$statics['coupon']}{/if}</span>{/if}
 				</div>
 			</a>
+			{/if}
 		</div>
 		{/if}
 
@@ -310,41 +343,16 @@
 				<div class="fui-cell-remark">{if $statics['favorite']>0}<span class='badge'>{$statics['favorite']}</span>{/if}</div>
 			</a>
 
-			<a class="fui-cell" href="{php echo mobileUrl('member/history');}">
-				<div class="fui-cell-icon"><i class="icon icon-footprint"></i></div>
-				<div class="fui-cell-text"><p>我的足迹</p></div>
-				<div class="fui-cell-remark"></div>
-			</a>
-			<!--<a class="fui-cell" href="{php echo mobileUrl('member/notice');}" data-nocache="true">
-				<div class="fui-cell-icon"><i class="icon icon-notice"></i></div>
-				<div class="fui-cell-text"><p>消息提醒设置</p></div>
-				<div class="fui-cell-remark"></div>
-			</a>-->
-			{if $hasFullback}
-			<a class="fui-cell external" href="{php echo mobileUrl('member/fullback');}" data-nocache="true">
-				<div class="fui-cell-icon"><i class="icon icon-daituikuan2"></i></div>
-				<div class="fui-cell-text"><p>我的全返</p></div>
-				<div class="fui-cell-remark"></div>
-			</a>
-			{/if}
 		</div>
-	  
-		<div class="fui-cell-group fui-cell-click">
-		    {if  $_W['shopset']['trade']['withdraw']==1}
-			<a class="fui-cell" href="{php echo mobileUrl('member/withdraw')}">
-				<div class="fui-cell-icon"><i class="icon icon-tixian"></i></div>
-				<div class="fui-cell-text"><p>{$_W['shopset']['trade']['moneytext']}提现</p></div>
-				<div class="fui-cell-remark"></div>
-			</a>
-		    {/if}
-			<a class="fui-cell" href="{php echo mobileUrl('member/log')}">
-				<div class="fui-cell-icon"><i class="icon icon-xiaofei"></i></div>
-				<div class="fui-cell-text"><p>
-				    {if $_W['shopset']['trade']['withdraw']==1}{$_W['shopset']['trade']['moneytext']}明细{else}充值记录{/if}
-				    </p></div>
-				<div class="fui-cell-remark"></div>
-			</a>
-		</div>
+
+        <div class="fui-cell-group fui-cell-click">
+            <a class="fui-cell" href="{php echo mobileUrl('member/log',array('type'=>1))}">
+                <div class="fui-cell-icon"><i class="icon icon-xiaofei"></i></div>
+                <div class="fui-cell-text"><p>提现记录</p></div>
+                <div class="fui-cell-remark"></div>
+            </a>
+        </div>
+
 		<div class="fui-cell-group fui-cell-click">
 			<a class="fui-cell" href="{php echo mobileUrl('member/address')}">
 				<div class="fui-cell-icon"><i class="icon icon-dingwei1"></i></div>

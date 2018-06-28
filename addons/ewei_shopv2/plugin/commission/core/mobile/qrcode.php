@@ -71,11 +71,11 @@ class Qrcode_EweiShopV2Page extends CommissionMobileLoginPage
 					$img = $this->model->createGoodsImage($goods);
 				}
 			}
-//			else if (!empty($set['qrcode'])) {
-//				if ($p) {
-//					$img = $p->createCommissionPoster($openid, 0, 4);
-//				}
-//			}
+			else if (!empty($set['qrcode'])) {
+				if ($p) {
+					$img = $p->createCommissionPoster($openid, 0, 4);
+				}
+			}
 			else {
 				if ($p) {
 					$img = $p->createCommissionPoster($openid);

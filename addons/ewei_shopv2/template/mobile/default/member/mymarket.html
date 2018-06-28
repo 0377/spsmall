@@ -1,0 +1,37 @@
+{template '_header'}
+<div class='fui-page  fui-page-current'>
+    <div class="fui-header">
+        <div class="fui-header-left">
+            <a class="back" onclick='location.back()'></a>
+        </div>
+        <div class="title">我的市场</div>
+        <div class="fui-header-right"></div>
+    </div>
+    <div style="height: 2.2rem; width: 100%">  </div>
+    <div class="fui-cell-group fui-cell-click">
+
+        <div class="fui-cell"  >
+            <div class="fui-cell-icon"><i class="icon icon-wodeyouhuiquan"></i></div>
+            <div class="fui-cell-text"><p>我的直营</p></div>
+            <div class="fui-cell-remark">{if $one_sum == ''}0{else}{$one_sum}{/if}人{if $statics['coupon']>0}<span  {if $statics['newcoupon']>0}style="background: #fe5455;color:#fff"{/if} class='badge'>  {if $statics['newcoupon']>0}new{else}{$statics['coupon']}{/if}</span>{/if}
+            </div>
+        </div>
+
+        <div class="fui-cell"  >
+            <div class="fui-cell-icon"><i class="icon icon-wodeyouhuiquan"></i></div>
+            <div class="fui-cell-text"><p>我的间营</p></div>
+            <div class="fui-cell-remark">{if $k == ''}0{else}{$k}{/if}人{if $statics['coupon']>0}<span  {if $statics['newcoupon']>0}style="background: #fe5455;color:#fff"{/if} class='badge'>  {if $statics['newcoupon']>0}new{else}{$statics['coupon']}{/if}</span>{/if}
+            </div>
+        </div>
+
+        <div class="fui-cell"  >
+            <div class="fui-cell-icon"><i class="icon icon-wodeyouhuiquan"></i></div>
+            <div class="fui-cell-text"><p>我的大市场</p></div>
+            <div class="fui-cell-remark">{if $j == ''}0{else}{$j}{/if}人{if $statics['coupon']>0}<span  {if $statics['newcoupon']>0}style="background: #fe5455;color:#fff"{/if} class='badge'>  {if $statics['newcoupon']>0}new{else}{$statics['coupon']}{/if}</span>{/if}
+            </div>
+        </div>
+
+    </div>
+
+</div>
+

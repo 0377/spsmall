@@ -200,61 +200,61 @@ if (!class_exists('SnsModel')) {
 			$log = '';
 			if (($type == SNS_CREDIT_POST) || ($type == SNS_CREDIT_DELETE_POST)) {
 				$credit = $board['postcredit'];
-				$log = '人人社区发表话题奖励积分: +' . $credit;
+				$log = '微商宝社区发表话题奖励积分: +' . $credit;
 
 				if ($type == SNS_CREDIT_DELETE_POST) {
 					$credit = 0 - $credit;
-					$log = '人人社区被删除话题扣除积分: -' . abs($credit);
+					$log = '微商宝社区被删除话题扣除积分: -' . abs($credit);
 				}
 			}
 			else {
 				if (($type == SNS_CREDIT_REPLY) || ($type == SNS_CREDIT_DELETE_REPLY)) {
 					$credit = $board['replycredit'];
-					$log = '人人社区发表评论奖励积分: +' . $credit;
+					$log = '微商宝社区发表评论奖励积分: +' . $credit;
 
 					if ($type == SNS_CREDIT_DELETE_REPLY) {
-						$log = '人人社区被删除评论奖励积分: -' . abs($credit);
+						$log = '微商宝社区被删除评论奖励积分: -' . abs($credit);
 						$credit = 0 - $credit;
 					}
 				}
 				else {
 					if (($type == SNS_CREDIT_TOP) || ($type == SNS_CREDIT_TOP_CANCEL)) {
 						$credit = $board['topcredit'];
-						$log = '人人社区话题被全站置顶奖励积分: +' . $credit;
+						$log = '微商宝社区话题被全站置顶奖励积分: +' . $credit;
 
 						if ($type == SNS_CREDIT_TOP_CANCEL) {
 							$credit = 0 - $credit;
-							$log = '人人社区话题被取消全站置顶扣除积分: ' . abs($credit);
+							$log = '微商宝社区话题被取消全站置顶扣除积分: ' . abs($credit);
 						}
 					}
 					else {
 						if (($type == SNS_CREDIT_TOP_BOARD) || ($type == SNS_CREDIT_TOP_BOARD_CANCEL)) {
 							$credit = $board['topboardcredit'];
-							$log = '人人社区话题被版块置顶奖励积分: +' . $credit;
+							$log = '微商宝社区话题被版块置顶奖励积分: +' . $credit;
 
 							if ($type == SNS_CREDIT_TOP_BOARD_CANCEL) {
 								$credit = 0 - $credit;
-								$log = '人人社区话题被版块置顶奖励积分: -' . abs($credit);
+								$log = '微商宝社区话题被版块置顶奖励积分: -' . abs($credit);
 							}
 						}
 						else {
 							if (($type == SNS_CREDIT_BEST) || ($type == SNS_CREDIT_BEST_CANCEL)) {
 								$credit = $board['bestcredit'];
-								$log = '人人社区话题被全站精华奖励积分: +' . $credit;
+								$log = '微商宝社区话题被全站精华奖励积分: +' . $credit;
 
 								if ($type == SNS_CREDIT_TOP_BOARD_CANCEL) {
 									$credit = 0 - $credit;
-									$log = '人人社区话题被全站精华奖励积分: -' . abs($credit);
+									$log = '微商宝社区话题被全站精华奖励积分: -' . abs($credit);
 								}
 							}
 							else {
 								if (($type == SNS_CREDIT_BEST_BOARD) || ($type == SNS_CREDIT_BEST_BOARD_CANCEL)) {
 									$credit = $board['bestboardcredit'];
-									$log = '人人社区话题被版块精华奖励积分: +' . $credit;
+									$log = '微商宝社区话题被版块精华奖励积分: +' . $credit;
 
 									if ($type == SNS_CREDIT_BEST_BOARD_CANCEL) {
 										$credit = 0 - $credit;
-										$log = '人人社区话题被取消版块精华奖励积分: -' . abs($credit);
+										$log = '微商宝社区话题被取消版块精华奖励积分: -' . abs($credit);
 									}
 								}
 							}

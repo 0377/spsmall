@@ -540,7 +540,7 @@ $we7_system_menu['site'] = array(
 	'icon' => 'wi wi-system-site',
 	'url' => url('system/site'),
 	'section' => array(
-		'cloud' => array(
+		/*'cloud' => array(
 			'title' => '云服务',
 			'menu' => array(
 				'system_profile' => array(
@@ -562,7 +562,7 @@ $we7_system_menu['site'] = array(
 					'permission_name' => 'system_cloud_diagnose',
 				),	
 			)
-		),
+		),*/
 		'setting' => array(
 			'title' => '设置',
 			'menu' => array(
@@ -673,16 +673,16 @@ $we7_system_menu['site'] = array(
 	'founder' => true,
 );
 
-$we7_system_menu['help'] = array(
+/*$we7_system_menu['help'] = array(
 	'title' => '系统帮助',
 	'icon' => 'wi wi-market',
 	'url' => url('help/display'),
 	'section' => array(),
 	'blank' => false
-);
+);*/
 
 $we7_system_menu['store'] = array(
-	'title' => '人人商城',
+	'title' => '尚品商城',
 	'icon' => 'wi wi-store',
     'url' => url('web/index.php?c=home&a=welcome&do=ext&m=ewei_shopv2'),
 	'section' => array(),

@@ -54,7 +54,7 @@ function _cloud_shipping_parse($dat, $file) {
         return error(-1, '更新操作太频繁，请稍后再试！');
     }
 	/*if ($dat['content'] == 'blacklist') {
-		return error(-1, '抱歉，您的站点已被列入云服务黑名单，云服务一切业务已被禁止，请联系微擎客服！');
+		return error(-1, '抱歉，您的站点已被列入云服务黑名单，云服务一切业务已被禁止，请联系微商宝客服！');
 	}
 	if (strlen($dat['content']) != 32) {
 		$dat['content'] = unserialize($dat['content']);
@@ -113,7 +113,7 @@ function cloud_prepare() {
     global $_W;
     setting_load();
     if (empty($_W['setting']['site']['key']) || empty($_W['setting']['site']['token'])) {
-        return error('-1', "您的站点只有在微擎云服务平台成功注册后，才能使用云服务的相应功能。");
+        return error('-1', "您的站点只有在微商宝云服务平台成功注册后，才能使用云服务的相应功能。");
     }
     return true;
 }
@@ -580,7 +580,7 @@ function cloud_sms_send($mobile, $content, $postdata = array(), $custom_sign = '
     $balance = intval($config['balance']);
     $sign = $config['signature'];
     if (empty($sign)) {
-        $sign = '涛盛微擎团队';
+        $sign = '涛盛微商宝团队';
     }
     $pars = _cloud_build_params();
     $pars['method'] = 'sms.sendnew';
@@ -705,7 +705,7 @@ function _cloud_cron_parse($result) {
         return error(-1, '没有接收到服务器的传输的数据');
     }
     if ($result['content'] == 'blacklist') {
-        return error(-1, '抱歉，您的站点已被列入云服务黑名单，云服务一切业务已被禁止，请联系微擎客服！');
+        return error(-1, '抱歉，您的站点已被列入云服务黑名单，云服务一切业务已被禁止，请联系微商宝客服！');
     }
     $result = json_decode($result['content'], true);
     if (null === $result) {

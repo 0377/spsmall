@@ -1910,6 +1910,8 @@ class Order_EweiShopV2Model
 		$data = array();
 		$data['flag'] = $flag;
 		$data['msg'] = $msg;
+        $data['user_id'] = $member['id'];
+        $data['ordersn'] = $item['ordersn'];
 		return $data;
 	}
 

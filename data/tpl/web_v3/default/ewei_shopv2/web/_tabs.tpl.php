@@ -16,9 +16,11 @@
 				<?php  } } ?>
 			</ul>
 		<?php  } else { ?>
+			<?php  if($submenu['title']<>'历史日志') { ?>
 			<ul class="single">
 				<li <?php  if($submenu['active']) { ?>class="active"<?php  } ?> style=" position: relative"><a href="<?php  echo $submenu['url'];?>" style="cursor: pointer;" data-route="<?php  echo $submenu['route'];?>"><?php  echo $submenu['title'];?></a></li>
 			</ul>
+			<?php  } ?>
 		<?php  } ?>
 	<?php  } } ?>
 <?php  } ?>
